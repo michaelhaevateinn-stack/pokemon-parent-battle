@@ -313,14 +313,21 @@ katy:'katy',brassius:'brassius',iono:'iono',kofu:'kofu','larry-gym':'larry',ryme
 Object.assign(TRAINER_SPRITES,EXTRA_TRAINER_SPRITES);
 // Portraits use a few alternative sprite names; when unavailable show the ace instead of an empty face icon.
 const TRAINER_ALIASES={'tate-liza':['tateandliza','tate','liza'],'lorelei':['lorelei','lorelei-gen3'],'agatha':['agatha','agatha-gen3'],maxie:['maxie','maxie-oras'],archie:['archie','archie-oras'],phoebe:['phoebe','phoebe-oras'],drake:['drake','drake-oras'],arven:['arven','arven-s'],nemona:['nemona','nemona-s']};
-const HISUI_SPRITES={kleavor:'iscan',lilligant:'arezu',arcanine:'palina',electrode:'melli',avalugg:'gaeric',adaman:'adaman',irida:'irida',kamado:'kamado',volo:'volo'};
+const HISUI_SPRITES={kleavor:'lian',lilligant:'arezu',arcanine:'palina',electrode:'melli',avalugg:'gaeric',adaman:'adaman',irida:'irida',kamado:'kamado',volo:'volo'};
 // 画像が取得できない場合もポケモンの画像でトレーナーを代用しない。
 const TRAINER_PORTRAIT_ALIASES={
- kleavor:['iscan'],lilligant:['arezu'],arcanine:['palina'],electrode:['melli'],avalugg:['gaeric'],
+ kleavor:['lian'],lilligant:['arezu'],arcanine:['palina'],electrode:['melli'],avalugg:['gaeric'],
  adaman:['adaman'],irida:['irida'],kamado:['kamado'],volo:['volo'],
- 'hisui-kleavor':['iscan'],'hisui-lilligant':['arezu'],'hisui-arcanine':['palina'],'hisui-electrode':['melli'],'hisui-avalugg':['gaeric'],
+ 'hisui-kleavor':['lian'],'hisui-lilligant':['arezu'],'hisui-arcanine':['palina'],'hisui-electrode':['melli'],'hisui-avalugg':['gaeric'],
  'hisui-adaman':['adaman'],'hisui-irida':['irida'],'hisui-kamado':['kamado'],'hisui-volo':['volo'],
- 'tate_liza':['tateandliza','tate','liza']
+ 'tate_liza':['tateandliza-gen6','tateandliza-gen3'],
+ 'lumiose-tarragon':['tarragon'],
+ 'lumiose-canari':['canari'],
+ 'lumiose-corbeau':['corbeau'],
+ 'lumiose-emma':['emma-lza'],
+ 'lumiose-rival':['taunie'],
+ 'lumiose-az':['az-lza'],
+ 'lumiose-grise':['grisham']
 };
 function trainerPortrait(t){
  const holder=document.createElement('div');holder.className='trainer-portrait';
@@ -329,12 +336,12 @@ function trainerPortrait(t){
  }
  const pic=document.createElement('img');pic.loading='lazy';pic.alt=t.name+'のトレーナー画像';
  const key=String(t.id||'');const bare=key.startsWith('hisui-')?key.slice(6):key;
- const ids=[...(TRAINER_PORTRAIT_ALIASES[key]||[]),...(TRAINER_ALIASES[key]||[]),TRAINER_SPRITES[key],HISUI_SPRITES[bare],bare].filter(Boolean);
+ const ids=[...(TRAINER_PORTRAIT_ALIASES[key]||[]),...(TRAINER_ALIASES[key]||[]),TRAINER_SPRITES[key],HISUI_SPRITES[bare],...(t.region==='lumiose'?[]:[bare])].filter(Boolean);
  const candidates=[...new Set(ids)];let index=0;
- const placeholder=()=>{pic.remove();holder.textContent='👤';holder.title=t.name+'のトレーナー画像を取得できませんでした';holder.setAttribute('aria-label',holder.title)};
+ const placeholder=()=>{pic.remove();holder.textContent=t.name;holder.style.fontSize='14px';holder.style.fontWeight='bold';holder.style.textAlign='center';holder.style.padding='8px';holder.title=t.name+'の画像は未収録です';holder.setAttribute('aria-label',holder.title)};
  pic.onerror=()=>{index++;if(index<candidates.length)pic.src='https://play.pokemonshowdown.com/sprites/trainers/'+candidates[index]+'.png';else placeholder()};
  if(candidates.length)pic.src='https://play.pokemonshowdown.com/sprites/trainers/'+candidates[0]+'.png';else placeholder();
- if(candidates.length)holder.append(pic);return holder;
+ if(candidates.length)holder.append(pic);else placeholder();return holder;
 }
 
 function badgeSvg(region,i){const color=BADGE_COLORS[region][i];const shapes=['M32 5 L53 18 L47 46 L32 58 L17 46 L11 18 Z','M32 4 L42 21 L60 22 L48 37 L53 56 L32 48 L11 56 L16 37 L4 22 L22 21 Z','M32 4 L40 20 L57 15 L51 33 L60 46 L41 47 L32 60 L23 47 L4 46 L13 33 L7 15 L24 20 Z','M32 4 L54 13 L60 32 L54 51 L32 60 L10 51 L4 32 L10 13 Z'];const p=shapes[i%shapes.length];return `<svg viewBox="0 0 64 64" width="58" height="58" aria-hidden="true"><path d="${p}" fill="${color}" stroke="#334d69" stroke-width="3" stroke-linejoin="round"/><path d="M32 13 L45 25 L42 40 L32 49 L22 40 L19 25 Z" fill="#fff" opacity=".3"/><circle cx="32" cy="32" r="7" fill="#fff" opacity=".75"/></svg>`}
