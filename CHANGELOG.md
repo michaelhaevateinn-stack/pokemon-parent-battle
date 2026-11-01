@@ -1,3 +1,8 @@
+# v4.8.3
+- ミアレ編のグリーズとマスカットのトレーナー画像を新規作成ドット絵に変更。
+- trainer_grise.png と trainer_muscat.png をZIPに同梱。index.htmlと同じ場所に配置。
+- 他のトレーナー、対戦データは変更なし。
+
 ## v4.8.2（2026-11-01）
 - ホウエン地方のマツブサ、アオギリ、フヨウ、ゲンジのトレーナー画像IDを実在するPokemon Showdown画像名に修正。
 - マツブサ: maxie-gen6 → maxie-gen3、アオギリ: archie-gen6 → archie-gen3。
