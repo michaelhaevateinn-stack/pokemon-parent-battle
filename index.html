@@ -109,8 +109,8 @@ main{padding-top:max(8px,env(safe-area-inset-top));}.home-screen{margin-top:5px;
 .badge-case{background:#f7fbff;border:2px solid #c6dbef;border-radius:16px;padding:12px;margin:14px 0}
 .badge-case h3{font-size:17px;margin:0 0 10px}.badge-case h3 small{float:right;color:#50769c}
 .badge-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.badge-slot{display:flex;flex-direction:column;align-items:center;gap:2px;background:#fff;border:1px solid #dce7f0;border-radius:10px;padding:6px 2px;font-size:11px;font-weight:700}.badge-slot svg{width:45px;height:45px}.badge-slot.locked svg{filter:grayscale(1);opacity:.22}.badge-slot.locked span{color:#9aa8b4}.badge-win{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px;background:linear-gradient(#fff9d8,#fff);border-radius:12px;margin:10px 0;animation:badgePop .6s ease}.badge-win svg{width:90px;height:90px;filter:drop-shadow(0 3px 5px #e8ad3990)}.badge-win strong{font-size:19px;color:#9b6714}@keyframes badgePop{0%{transform:scale(.5);opacity:0}75%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
-</style></head><body><main><section id="homePage" class="home-screen"><div class="home-logo"><span class="pokeball-mark">◉</span><span>POCKET<br><strong>BATTLE <em>DX</em></strong></span></div><div class="home-mons" id="homeMons"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="ピカチュウ"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="リザードン"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" alt="ルカリオ"></div><div class="home-actions"><button class="btn home-primary" id="homeStart">👥 2人で対戦</button><button class="btn home-primary" id="cpuStart">🤖 CPUと対戦</button><button class="btn home-primary" id="storyStart">🏅 ストーリーモード</button><button class="btn secondary" id="adminStart">🔑 管理者モード</button><label class="home-cry-toggle"><input type="checkbox" id="homeSoundOn"> 🔊 ポケモンの鳴き声 ON/OFF</label><button class="btn secondary" id="homeSettings">⚙ 設定</button><button class="btn secondary" id="homeRecords">🏆 対戦記録</button><button class="btn secondary" id="homeChanges">📝 更新履歴</button></div><p class="home-foot">FAMILY BATTLE SYSTEM · v4.9.9</p></section><section id="storyPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2 id="storyHeading">🏅 ストーリーモード</h2><p class="muted">地方を選んでジムリーダーに挑戦！ 勝つとクリア記録が残るよ。</p><div id="storyRegions" class="story-regions"></div><div id="storyDetails" class="story-details"></div></section><section id="changesPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2>📝 更新履歴</h2><p class="muted">変更内容と未解決事項をバージョンごとに記録します。</p><div class="history-entry"><b>v4.9.9</b><p>既存の技の成功条件・追加効果・天候効果を調整。新しい技やセーブ仕様の追加はありません。</p></div><div class="history-entry"><b>v4.9.7</b><p>放置冒険と共通の技効果を導入。レベル・命中と回避・状態異常・能力変化をそろえ、げきりんとあばれるを追加。</p></div><div class="history-entry"><b>v4.9.6</b><p>どくや天候などでターン終了時に倒れた場合の交代を修正。倒れたポケモンがダイマックス解除で復活することがあった不具合も修正。</p></div><div class="history-entry"><b>v4.9.5</b><p>はなびらのまいと混乱の動きを更新。ガラル三鳥をガラルのすがたに修正。カプなどの3対2は相手2匹を表示。Lv.70の伝説ボスは追加HP2倍を廃止し、レベル補正の二重適用も修正。</p></div><div class="history-entry"><b>v4.9.4</b><p>カントーのブルー・グリーンの解放順を修正。グリーンが攻略順から漏れ、ブルーが重複して末尾に登録されていた不具合を解消。既存のクリア記録とFirebase同期は維持。</p></div><div class="history-entry"><b>v4.9.3</b><p>自動技構成でタイプ一致攻撃技を両タイプから優先採用。既存の技キャッシュも不足タイプを再評価。レシラムにドラゴン技を追加し、専用技を優先。Firebase同期・セーブデータは維持。</p></div><div class="history-entry"><b>v4.9.2</b><p>ムゲンダイナの技をダイマックスほう・ヘドロばくだん・かえんほうしゃ・ムゲンダイビームに固定。ムゲンダイビームの次ターン行動不能は実装しない。Firebase同期とセーブデータは維持。</p></div><div class="history-entry"><b>v4.9.1</b><p>ストーリーモードでリージョンフォーム指定が抜けていた問題を修正。クチナシのアローラペルシアン、ライチのアローラゴローニャ、ハプウのアローラダグトリオ、オニオンのガラルデスマス、ポプラのガラルマタドガス、メロンのガラルヒヒダルマを指定。対戦前の画像も該当フォルムへ変更。既存のFirebase同期とセーブキーは維持。</p></div><div class="history-entry"><b>v4.9.0</b><p>ジガルデのコアパニッシャーをメガシンカ時に「無に帰す光」へ確実に変更。技識別子を付与し、フェアリーへの命中・相手の能力ランク無視をダメージ計算に反映。専用技4枠と既存セーブデータは維持。</p></div><div class="history-entry"><b>v4.8.8</b><p>M次元ラッシュ版コルニとアンシャの公式立ち絵を公式配信元URLから表示するよう変更。画像読み込み失敗時は名前を表示し、別人の画像に置換しない。画像のZIP内同梱は未対応で、インターネット接続が必要。実機での画像表示は未検証。</p></div><div class="history-entry"><b>v4.8.7</b><p>パルデアの中に碧の仮面・藍の円盤、ZA（ミアレ）の中にM次元ラッシュをまとめるタブを追加。藍の円盤のスグリはチャンピオン姿のドット絵（kieran-champion.png）を優先。従来の対戦相手ID・クリア記録は維持。コルニとアンシャの公式立ち絵は画像ファイル未取得のため引き続き未収録。</p></div><div class="history-entry"><b>v4.8.6</b><p>ジム戦がないアローラ・パルデア・ヒスイ・ミアレのクリアメダルケースと獲得演出を非表示。ガラルは8巡のジム戦に対応したジムバッジケースを表示。クリア記録と対戦内容は変更なし。</p></div><div class="history-entry"><b>v4.8.4</b><p>カロス以降のバッジケース非表示を修正。カロスのジムバッジ8個、アローラ・ガラル・パルデア・ヒスイ・ミアレの独自クリアメダルを追加。勝利演出でバッジ名が未定義となる不具合も修正。従来のクリア記録は維持。</p></div><div class="history-entry"><b>v4.8.3</b><p>ミアレ編のグリーズ・マスカットについて、ポケモン公式サイトに掲載された本人のゲーム画像を直接参照するよう変更。Showdown画像未登録時の名前表示を解消する対応。外部サイトへの通信が必要で、iPhone実機での読み込みは未確認。</p></div><div class="history-entry"><b>v4.8.0</b><p>ミアレ編のトレーナー画像を日本語名・英語名・公開スプライト一覧で照合して更新。デウロ、ピュール、ムク、シロー、ジプソ、ハルジオ、ユカリ、グリを含む14人の参照先を設定。グリーズ、マスカットは公開画像一覧に該当スプライトを確認できず名前表示を継続（未解決）。誤った別人画像への置換は行わない。実機表示は未確認。</p></div><div class="history-entry"><b>v4.7.9</b><p>更新履歴を整理。v4.7.4〜v4.7.8の変更と、ミアレ編の未解決の顔画像問題を明記。画像の実機表示は未検証。</p></div><div class="history-entry"><b>v4.7.8</b><p>ヒスイのキクイ画像IDを修正。ミアレ編の一部トレーナー画像候補を追加。未登録画像は名前表示へ変更。未解決：デウロ、ピュールなどミアレ編の一部は画像が出ない。</p></div><div class="history-entry"><b>v4.7.7</b><p>ヒスイのトレーナー画像対応付けを修正。画像取得失敗時にエースポケモンを表示する代替処理を廃止。</p></div><div class="history-entry"><b>v4.7.6</b><p>トレーナー画像の読み込み処理を変更。伝説チャレンジを地方別の折りたたみ表示に変更。</p></div><div class="history-entry"><b>v4.7.5</b><p>ジガルデ専用技4種とメガジガルデの無に帰す光、ガブリアスのじしんを優先技に追加。</p></div><div class="history-entry"><b>v4.7.4</b><p>ゼルネアスのジオコントロールを使用可能に変更。イベルタルのデスウイング設定を確認。</p></div><div class="history-entry"><b>v4.7.3</b><p>メガシンカ後の姿を通常の選出画面から除外。メガシンカは対戦中に発動する方式に統一。ゲンシカイキやリージョンフォームは引き続き直接選択可能。</p></div><div class="history-entry"><b>v4.7.2</b><p>カロス以降のストーリー表示がバッジ定義不足で停止する不具合を修正。</p></div><div class="history-entry"><b>v4.7.1</b><p>カエデのエース名をヒメグマ（むしテラスタル）に修正。タイプ選択の先頭をノーマル→くさ→ほのお→みず→でんきに変更。</p></div><div class="history-entry"><b>v4.7.0</b><p>伝説チャレンジ67戦を9地方別に追加。全ストーリー制覇で解放。準伝説グループはLv.50、単独ボスはLv.70・HP2倍。ゲンシカイキなどのフォームを通常選出にも追加（対応に一部制限あり）。</p></div><div class="history-entry"><b>v4.6.0</b><p>ヒスイ編9戦とミアレ編16戦、カルネ・シロナ撃破後の解放、専用メガ・ぬし仕様、変身タイミング、キョダイ表記を更新。伝説チャレンジにジガルデ・ダークライを追加。</p></div><div class="history-entry"><b>v4.5.3</b><p>トレーナー画像対応表を9地方へ拡張。全公開ポケモンの日本語名取得、ストーリー特殊変身の重複防止、ぬしの金色HPゲージと常時表示を追加。</p></div><div class="history-entry"><b>v4.5.3</b><p>ストーリー進行リセットを削除。敵エースのメガシンカ・ダイマックス・テラスタル、アローラのぬしHP補正を実装。</p></div><div class="history-entry"><b>v4.5.1</b><p>管理者モード追加。パスワード入力で全地方・全トレーナーを自由に選択でき、クリア実績・バッジ・勝数は更新しません。</p></div><div class="history-entry"><b>v4.5.0</b><p>カロス・アローラ・ガラル・パルデアを追加し、9地方のジム・試練を横断攻略。悪の組織・四天王・チャンピオンも地方横断。対戦前の特殊ルール説明を追加。</p></div><div class="history-entry"><b>v4.4.0</b><p>ホウエン・シンオウ・イッシュ地方のジムリーダー、悪の組織ボス、四天王、チャンピオンを追加。5地方の同じジム番号を順番に攻略。特別ボスは手持ち3匹公開。Nはレシラム・ゼクロム・ゾロアーク（エース）。各地方のバッジケースを追加。</p></div><div class="history-entry"><b>v4.3.0</b><p>ジョウト地方のジム8人・アポロ・四天王4人・ワタルを追加。タケシ→ハヤト→カスミ→ツクシ…と地方を交互に進行。地方選択にNEW表示、次の挑戦相手案内を追加。アポロとチャンピオン・ワタルは手持ち3匹を公開。</p></div><div class="history-entry"><b>v4.1.0</b><p>カントー編全14戦（ジム8人・ロケット団サカキ・四天王4人・グリーン）を追加。勝利で次の対戦相手が解放。グリーン戦は御三家3匹を事前公開。ストーリー進行状況リセットボタンを追加。</p></div><div class="history-entry"><b>v4.0.0</b><p>ストーリーモード試作版。地方選択、タケシ戦（イシツブテ・ゴローン・エースのイワーク）、エース紹介、3匹選択、勝利記録保存を追加。ほかの地方は今後解禁。</p></div><div class="history-entry"><b>v3.1.0</b><p>Z-A／M次元ラッシュの新メガシンカ48種類を選択候補に追加。タイプ・種族値・画像の取得を拡張（一部の数値と画像は暫定・未収録）。ルカリオZ、ガブリアスZ、アブソルZなどのタップ選択にも対応。</p></div><div class="history-entry"><b>v3.0.2</b><p>CPU難易度の説明と、メガリザードン・メガミュウツーのX/Yタップ選択を追加。</p></div><div class="history-entry"><b>v3.0.1</b><p>タイトル画面で鳴き声のON/OFFを設定可能に。対戦中の設定と連動し、次回起動時も保存。</p></div><div class="history-entry"><b>v3.0.0</b><p>CPU対戦モードを追加。3段階の難易度、ランダム3匹、技選択・交代・特殊進化に対応。</p></div><div class="history-entry"><b>v2.0.2</b><p>鳴き声だけを残し、攻撃・ダメージ・勝利などの効果音とテストボタンを削除。更新履歴を最新まで整理。</p></div><div class="history-entry"><b>v2.0.1</b><p>GitHub PagesでWAV音声をindex.htmlと同じ階層から読み込むよう変更。</p></div><div class="history-entry"><b>v2.0.0</b><p>効果音をWAVファイル方式に変更し、再生エラー表示を追加。</p></div><div class="history-entry"><b>v1.9.9</b><p>iPhone向け効果音の再生方式を変更。</p></div><div class="history-entry"><b>v1.9.8</b><p>技選択時の対戦画面への自動スクロールと、効果音のテスト機能を追加。</p></div><div class="history-entry"><b>v1.9.7</b><p>タイプ相性の◎・◎◎などの表示を復活。本家風の相性・急所メッセージに変更。</p></div><div class="history-entry"><b>v1.9.6</b><p>ポケモン登場時の「いけ！」メッセージと鳴き声、技のⓘ説明ボタンを追加。</p></div><div class="history-entry"><b>v1.9.5</b><p>モンスターボール演出を削除。鳴き声と基本演出は維持。</p></div><div class="history-entry"><b>v1.9.4</b><p>相手ポケモンが倒れた後の表示とHPバーの不要な再アニメーションを修正。</p></div><div class="history-entry"><b>v1.9.3</b><p>こんらん、もうどく、一撃必殺、技の説明、HP・勝利演出、鳴き声などを追加。</p></div><div class="history-entry"><b>v1.9.2</b><p>能力ランク変化、急所、まもる、ひるみ、回復技などを調整。</p></div><div class="history-entry"><b>v1.9.1</b><p>吸収技とシャカシャカほうのHP回復処理を追加。</p></div><div class="history-entry"><b>v1.9.0</b><p>御三家などの専用技を優先して採用。</p></div><div class="history-entry"><b>v1.8.4</b><p>ソーラービーム、はかいこうせん、ギガインパクト、御三家究極技などを即撃ちで復帰。溜め・反動休みは省略し、がまんなど複数ターン処理が必要な技は引き続き除外。</p></div><div class="history-entry"><b>v1.8.1</b><p>フォルムとスタジアムを画像・カードで選択。フォルムの姿を選択画面とバトル画面に反映。</p></div><div class="history-entry"><b>v1.7.8</b><p>フォルム選択欄が画面に存在しなかった不具合を修正。デオキシス、ザシアンなどの姿を選択可能に。</p></div><div class="history-entry"><b>v1.7.7</b><p>技に物理・特殊・変化アイコンを追加。対戦中に攻撃・防御の種族値を比較表示。スタジアムを先に選択、効果を常時表示。対戦記録の修正・リセット、タイトル文言の整理。</p></div><div class="history-entry"><b>v1.7.6</b><p>専用技・御三家の究極技を優先。技の追加効果と状態異常を調整。メガリザードン・メガミュウツーのX/Y分岐を追加。</p></div><div class="history-entry"><b>v1.7.5</b><p>技の候補をレベル100までに覚えるレベルアップ技へ拡張。伝説ポケモンの高レベル習得技にも対応。バトルレベルは50のまま。</p></div><div class="history-entry"><b>v1.7.4</b><p>レベル100までのレベルアップ習得技をPokéAPIから取得。技名・PP・威力・命中率を反映。メガシンカ・キョダイマックスの画像取得を追加（一部画像未収録）。</p></div><div class="history-entry"><b>v1.7.3</b><p>バトル開始のデータ検証・エラー表示を強化。技変更を廃止し、ポケモン別の自動4技に変更。</p></div><div class="history-entry"><b>v1.7.2</b><p>重複ヘッダーを削除。日本語名の取得を強化し、表示前の読み込み・再取得機能を追加。履歴画面を新設。</p></div><div class="history-entry"><b>v1.7.1</b><p>世代選択と設定画面の表示を修正。</p></div><div class="history-entry"><b>v1.7</b><p>8種類のスタジアム、天候、洞窟のステルスロック、異次元、フォルム選択の一部を追加。</p></div><div class="history-entry"><b>v1.6</b><p>タイトル画面とスタジアム風デザインを追加。</p></div><div class="history-entry"><b>v1.5</b><p>チーム保存、技変更、状態異常、メガシンカ・キョダイマックスの試作。</p></div></section><section id="recordsPage" class="panel hide"><h2>🏆 対戦記録</h2><div id="recordContents"></div><div class="record-editor"><h3>✏️ 勝数を修正</h3><div class="setting-grid"><label id="recordLabel0">プレイヤー1<input id="recordWin0" type="number" min="0" step="1" inputmode="numeric"></label><label id="recordLabel1">プレイヤー2<input id="recordWin1" type="number" min="0" step="1" inputmode="numeric"></label></div><div class="teamtools"><button class="btn secondary" id="saveRecords">勝数を保存</button><button class="btn secondary" id="resetRecords">全記録をリセット</button></div><p id="recordStatus" class="status"></p></div><button class="btn secondary goHome">← タイトルへ</button></section><section id="settingsPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><div class="settings-heading"><span class="settings-symbol">⚙️</span><div><h2>バトル設定</h2><p>対戦する人と登場するポケモンを決めよう！</p></div></div><div class="settings-subtitle">🤖 CPU対戦の強さ</div><label class="setting-row">難易度 <select id="cpuDifficulty"><option value="easy">かんたん</option><option value="normal">ふつう</option><option value="hard">つよい</option></select></label><p id="cpuDifficultyHelp" class="cpu-difficulty-help" aria-live="polite"></p><div class="settings-subtitle">👥 プレイヤー</div><div class="setting-grid"><label>プレイヤー1<input id="name0" maxlength="16" placeholder="パパ"></label><label>プレイヤー2<input id="name1" maxlength="16" placeholder="だいき"></label></div><div class="settings-subtitle">📚 出場するシリーズ</div><p class="muted">好きな世代を複数選べるよ！</p><div class="gen-shortcuts"><button type="button" id="allGens" class="btn secondary">全部選ぶ</button><button type="button" id="firstGen" class="btn secondary">初代だけ</button></div><div id="genOptions" class="gens"></div><div class="settings-subtitle">✨ その他の設定</div><label class="setting-row final-option"><input type="checkbox" id="finalOnly"><span>最終進化のポケモンのみ<small>進化途中のポケモンを一覧から除外</small></span></label><p class="status">※最終進化判定はポケモン選択時に確認します。メガシンカ等は対象外。</p><p id="settingStatus" class="status"></p><button class="btn" id="saveSettings">設定を保存してタイトルへ →</button></section><section id="stadiumPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2>🏟️ まずスタジアムを選ぼう！</h2><div class="stadium-card"><h2>🏟️ スタジアムを選ぼう</h2><p class="muted">背景とバトル効果が変わるよ。迷ったら通常がおすすめ！</p><div id="stadiumCards" class="stadium-grid" aria-label="スタジアムを選ぶ"></div><select id="stadiumSelect" class="visually-hidden" aria-label="スタジアム"><option value="normal">🏟️ 通常スタジアム</option><option value="desert">🏜️ 砂漠</option><option value="sea">🌊 海</option><option value="volcano">🌋 火山</option><option value="snow">🏔️ 雪山</option><option value="fog">🌫️ 霧の森</option><option value="cave">🪨 洞窟</option><option value="dimension">🌌 異次元空間</option></select><p id="stadiumDesc" aria-live="polite">追加効果なし。基本のポケモンバトル。</p></div><p class="center"><button class="btn" id="confirmStadium">このスタジアムで対戦 →</button></p></section><section id="setup" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2 id="pickTitle">3匹選ぼう！</h2><p class="muted">好きなポケモンをタップ（3/3まで）。一覧はすぐ表示。選んだ6匹だけ通信して、次回のために保存します。</p><div class="filter-row"><label>シリーズ<select id="filterGen"><option value="all">すべてのシリーズ</option></select></label><label>タイプ<select id="filterType"><option value="all">すべてのタイプ</option></select></label></div><input class="search" id="searchBox" placeholder="🔎 名前で検索（例：ピカチュウ）" aria-label="名前で検索"><label>ポケモンを探す <select id="pokemonSelect"><option value="">一覧から選択</option></select></label><p id="selectionInfo" class="muted"></p><div id="formPickerArea" class="form-picker-area" aria-live="polite"></div><div class="teamtools"><button class="btn secondary" id="saveTeam">💾 この3匹を保存</button><button class="btn secondary" id="loadTeam">📂 保存した3匹を使う</button></div><p id="teamStatus" class="muted"></p><div class="pickgrid"><div id="choices" class="grid"></div></div><p class="center"><button class="btn" id="confirmPick" disabled>決定</button></p><p class="loading" id="loadMsg">ポケモンのデータを準備中…</p><button class="btn secondary" id="retryNames" type="button">🔄 日本語名を再取得</button></section><section id="game" class="hide"><div class="panel"><div class="topbar"><h2 id="turnTitle"></h2><span id="roundNumber" class="round">ROUND 1</span></div><div class="weather-hud" id="weatherHud">🏟️ 通常スタジアム</div><div id="weatherEffect" class="weather-effect"></div><div class="arena" id="arenaScene" data-stadium="normal"><div id="effect" class="effect"></div><div class="fighter" id="enemy"></div><div class="fighter reverse" id="ally"></div></div><div id="battleCompare" class="battle-compare"></div><div id="battlefeed" class="battlefeed">バトル開始！</div><div class="game-controls"><label class="toggle"><input type="checkbox" id="soundOn"> 🔊 ポケモンの鳴き声</label><label class="toggle"><input type="checkbox" id="fastMode"> 演出を短縮</label></div></div><div class="panel"><h2 id="actionTitle">行動を選ぼう</h2><div id="specialArea" class="special-actions"></div><div id="itemArea" class="item-action"></div><div id="moves" class="actions"></div><h2>ポケモンを交代</h2><div id="switches" class="switches"></div></div><div class="panel"><h2>バトル記録</h2><div class="log" id="log" aria-live="polite"></div></div></section><p class="center" id="restartWrap"><button class="btn secondary" id="restart">タイトルへ戻る</button></p></main><div id="itemTargetOverlay" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="itemTargetTitle"><h2 id="itemTargetTitle">🧴 かいふくのくすり</h2><p>回復するポケモンを選ぼう（使うと1ターン消費）</p><div id="itemTargets" class="item-targets"></div><button type="button" id="itemCancel" class="btn secondary item-cancel">やめる</button></div></div><div id="megaChoiceOverlay" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="megaChoiceTitle"><h2 id="megaChoiceTitle">✨ メガシンカ先を選ぼう</h2><p>好きな姿をタップしてね</p><div id="megaChoiceOptions" class="mega-choice-grid"></div><button type="button" id="megaChoiceCancel" class="btn secondary item-cancel">やめる</button></div></div><div id="moveInfo" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="moveInfoTitle"><h2 id="moveInfoTitle"></h2><p id="moveInfoBody"></p><button type="button" id="moveInfoClose" class="btn secondary item-cancel">とじる</button></div></div><div id="overlay"><div class="modal-inner"><h2 id="overlayTitle"></h2><p id="overlayText"></p><div id="forcedChoices" class="forced-choices" hidden></div><button id="overlayButton" class="btn">OK！</button></div></div><script>
-// Shared Pokémon move rules v3. One source for both applications.
+</style></head><body><main><section id="homePage" class="home-screen"><div class="home-logo"><span class="pokeball-mark">◉</span><span>POCKET<br><strong>BATTLE <em>DX</em></strong></span></div><div class="home-mons" id="homeMons"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="ピカチュウ"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" alt="リザードン"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" alt="ルカリオ"></div><div class="home-actions"><button class="btn home-primary" id="homeStart">👥 2人で対戦</button><button class="btn home-primary" id="cpuStart">🤖 CPUと対戦</button><button class="btn home-primary" id="storyStart">🏅 ストーリーモード</button><button class="btn secondary" id="adminStart">🔑 管理者モード</button><label class="home-cry-toggle"><input type="checkbox" id="homeSoundOn"> 🔊 ポケモンの鳴き声 ON/OFF</label><button class="btn secondary" id="homeSettings">⚙ 設定</button><button class="btn secondary" id="homeRecords">🏆 対戦記録</button><button class="btn secondary" id="homeChanges">📝 更新履歴</button></div><p class="home-foot">FAMILY BATTLE SYSTEM · v4.10.1</p></section><section id="storyPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2 id="storyHeading">🏅 ストーリーモード</h2><p class="muted">地方を選んでジムリーダーに挑戦！ 勝つとクリア記録が残るよ。</p><div id="storyRegions" class="story-regions"></div><div id="storyDetails" class="story-details"></div></section><section id="changesPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2>📝 更新履歴</h2><p class="muted">変更内容と未解決事項をバージョンごとに記録します。</p><div class="history-entry"><b>v4.10.1</b><p>既存の技の成功条件・追加効果・天候効果を調整。新しい技やセーブ仕様の追加はありません。</p></div><div class="history-entry"><b>v4.9.7</b><p>放置冒険と共通の技効果を導入。レベル・命中と回避・状態異常・能力変化をそろえ、げきりんとあばれるを追加。</p></div><div class="history-entry"><b>v4.9.6</b><p>どくや天候などでターン終了時に倒れた場合の交代を修正。倒れたポケモンがダイマックス解除で復活することがあった不具合も修正。</p></div><div class="history-entry"><b>v4.9.5</b><p>はなびらのまいと混乱の動きを更新。ガラル三鳥をガラルのすがたに修正。カプなどの3対2は相手2匹を表示。Lv.70の伝説ボスは追加HP2倍を廃止し、レベル補正の二重適用も修正。</p></div><div class="history-entry"><b>v4.9.4</b><p>カントーのブルー・グリーンの解放順を修正。グリーンが攻略順から漏れ、ブルーが重複して末尾に登録されていた不具合を解消。既存のクリア記録とFirebase同期は維持。</p></div><div class="history-entry"><b>v4.9.3</b><p>自動技構成でタイプ一致攻撃技を両タイプから優先採用。既存の技キャッシュも不足タイプを再評価。レシラムにドラゴン技を追加し、専用技を優先。Firebase同期・セーブデータは維持。</p></div><div class="history-entry"><b>v4.9.2</b><p>ムゲンダイナの技をダイマックスほう・ヘドロばくだん・かえんほうしゃ・ムゲンダイビームに固定。ムゲンダイビームの次ターン行動不能は実装しない。Firebase同期とセーブデータは維持。</p></div><div class="history-entry"><b>v4.9.1</b><p>ストーリーモードでリージョンフォーム指定が抜けていた問題を修正。クチナシのアローラペルシアン、ライチのアローラゴローニャ、ハプウのアローラダグトリオ、オニオンのガラルデスマス、ポプラのガラルマタドガス、メロンのガラルヒヒダルマを指定。対戦前の画像も該当フォルムへ変更。既存のFirebase同期とセーブキーは維持。</p></div><div class="history-entry"><b>v4.9.0</b><p>ジガルデのコアパニッシャーをメガシンカ時に「無に帰す光」へ確実に変更。技識別子を付与し、フェアリーへの命中・相手の能力ランク無視をダメージ計算に反映。専用技4枠と既存セーブデータは維持。</p></div><div class="history-entry"><b>v4.8.8</b><p>M次元ラッシュ版コルニとアンシャの公式立ち絵を公式配信元URLから表示するよう変更。画像読み込み失敗時は名前を表示し、別人の画像に置換しない。画像のZIP内同梱は未対応で、インターネット接続が必要。実機での画像表示は未検証。</p></div><div class="history-entry"><b>v4.8.7</b><p>パルデアの中に碧の仮面・藍の円盤、ZA（ミアレ）の中にM次元ラッシュをまとめるタブを追加。藍の円盤のスグリはチャンピオン姿のドット絵（kieran-champion.png）を優先。従来の対戦相手ID・クリア記録は維持。コルニとアンシャの公式立ち絵は画像ファイル未取得のため引き続き未収録。</p></div><div class="history-entry"><b>v4.8.6</b><p>ジム戦がないアローラ・パルデア・ヒスイ・ミアレのクリアメダルケースと獲得演出を非表示。ガラルは8巡のジム戦に対応したジムバッジケースを表示。クリア記録と対戦内容は変更なし。</p></div><div class="history-entry"><b>v4.8.4</b><p>カロス以降のバッジケース非表示を修正。カロスのジムバッジ8個、アローラ・ガラル・パルデア・ヒスイ・ミアレの独自クリアメダルを追加。勝利演出でバッジ名が未定義となる不具合も修正。従来のクリア記録は維持。</p></div><div class="history-entry"><b>v4.8.3</b><p>ミアレ編のグリーズ・マスカットについて、ポケモン公式サイトに掲載された本人のゲーム画像を直接参照するよう変更。Showdown画像未登録時の名前表示を解消する対応。外部サイトへの通信が必要で、iPhone実機での読み込みは未確認。</p></div><div class="history-entry"><b>v4.8.0</b><p>ミアレ編のトレーナー画像を日本語名・英語名・公開スプライト一覧で照合して更新。デウロ、ピュール、ムク、シロー、ジプソ、ハルジオ、ユカリ、グリを含む14人の参照先を設定。グリーズ、マスカットは公開画像一覧に該当スプライトを確認できず名前表示を継続（未解決）。誤った別人画像への置換は行わない。実機表示は未確認。</p></div><div class="history-entry"><b>v4.7.9</b><p>更新履歴を整理。v4.7.4〜v4.7.8の変更と、ミアレ編の未解決の顔画像問題を明記。画像の実機表示は未検証。</p></div><div class="history-entry"><b>v4.7.8</b><p>ヒスイのキクイ画像IDを修正。ミアレ編の一部トレーナー画像候補を追加。未登録画像は名前表示へ変更。未解決：デウロ、ピュールなどミアレ編の一部は画像が出ない。</p></div><div class="history-entry"><b>v4.7.7</b><p>ヒスイのトレーナー画像対応付けを修正。画像取得失敗時にエースポケモンを表示する代替処理を廃止。</p></div><div class="history-entry"><b>v4.7.6</b><p>トレーナー画像の読み込み処理を変更。伝説チャレンジを地方別の折りたたみ表示に変更。</p></div><div class="history-entry"><b>v4.7.5</b><p>ジガルデ専用技4種とメガジガルデの無に帰す光、ガブリアスのじしんを優先技に追加。</p></div><div class="history-entry"><b>v4.7.4</b><p>ゼルネアスのジオコントロールを使用可能に変更。イベルタルのデスウイング設定を確認。</p></div><div class="history-entry"><b>v4.7.3</b><p>メガシンカ後の姿を通常の選出画面から除外。メガシンカは対戦中に発動する方式に統一。ゲンシカイキやリージョンフォームは引き続き直接選択可能。</p></div><div class="history-entry"><b>v4.7.2</b><p>カロス以降のストーリー表示がバッジ定義不足で停止する不具合を修正。</p></div><div class="history-entry"><b>v4.7.1</b><p>カエデのエース名をヒメグマ（むしテラスタル）に修正。タイプ選択の先頭をノーマル→くさ→ほのお→みず→でんきに変更。</p></div><div class="history-entry"><b>v4.7.0</b><p>伝説チャレンジ67戦を9地方別に追加。全ストーリー制覇で解放。準伝説グループはLv.50、単独ボスはLv.70・HP2倍。ゲンシカイキなどのフォームを通常選出にも追加（対応に一部制限あり）。</p></div><div class="history-entry"><b>v4.6.0</b><p>ヒスイ編9戦とミアレ編16戦、カルネ・シロナ撃破後の解放、専用メガ・ぬし仕様、変身タイミング、キョダイ表記を更新。伝説チャレンジにジガルデ・ダークライを追加。</p></div><div class="history-entry"><b>v4.5.3</b><p>トレーナー画像対応表を9地方へ拡張。全公開ポケモンの日本語名取得、ストーリー特殊変身の重複防止、ぬしの金色HPゲージと常時表示を追加。</p></div><div class="history-entry"><b>v4.5.3</b><p>ストーリー進行リセットを削除。敵エースのメガシンカ・ダイマックス・テラスタル、アローラのぬしHP補正を実装。</p></div><div class="history-entry"><b>v4.5.1</b><p>管理者モード追加。パスワード入力で全地方・全トレーナーを自由に選択でき、クリア実績・バッジ・勝数は更新しません。</p></div><div class="history-entry"><b>v4.5.0</b><p>カロス・アローラ・ガラル・パルデアを追加し、9地方のジム・試練を横断攻略。悪の組織・四天王・チャンピオンも地方横断。対戦前の特殊ルール説明を追加。</p></div><div class="history-entry"><b>v4.4.0</b><p>ホウエン・シンオウ・イッシュ地方のジムリーダー、悪の組織ボス、四天王、チャンピオンを追加。5地方の同じジム番号を順番に攻略。特別ボスは手持ち3匹公開。Nはレシラム・ゼクロム・ゾロアーク（エース）。各地方のバッジケースを追加。</p></div><div class="history-entry"><b>v4.3.0</b><p>ジョウト地方のジム8人・アポロ・四天王4人・ワタルを追加。タケシ→ハヤト→カスミ→ツクシ…と地方を交互に進行。地方選択にNEW表示、次の挑戦相手案内を追加。アポロとチャンピオン・ワタルは手持ち3匹を公開。</p></div><div class="history-entry"><b>v4.1.0</b><p>カントー編全14戦（ジム8人・ロケット団サカキ・四天王4人・グリーン）を追加。勝利で次の対戦相手が解放。グリーン戦は御三家3匹を事前公開。ストーリー進行状況リセットボタンを追加。</p></div><div class="history-entry"><b>v4.0.0</b><p>ストーリーモード試作版。地方選択、タケシ戦（イシツブテ・ゴローン・エースのイワーク）、エース紹介、3匹選択、勝利記録保存を追加。ほかの地方は今後解禁。</p></div><div class="history-entry"><b>v3.1.0</b><p>Z-A／M次元ラッシュの新メガシンカ48種類を選択候補に追加。タイプ・種族値・画像の取得を拡張（一部の数値と画像は暫定・未収録）。ルカリオZ、ガブリアスZ、アブソルZなどのタップ選択にも対応。</p></div><div class="history-entry"><b>v3.0.2</b><p>CPU難易度の説明と、メガリザードン・メガミュウツーのX/Yタップ選択を追加。</p></div><div class="history-entry"><b>v3.0.1</b><p>タイトル画面で鳴き声のON/OFFを設定可能に。対戦中の設定と連動し、次回起動時も保存。</p></div><div class="history-entry"><b>v3.0.0</b><p>CPU対戦モードを追加。3段階の難易度、ランダム3匹、技選択・交代・特殊進化に対応。</p></div><div class="history-entry"><b>v2.0.2</b><p>鳴き声だけを残し、攻撃・ダメージ・勝利などの効果音とテストボタンを削除。更新履歴を最新まで整理。</p></div><div class="history-entry"><b>v2.0.1</b><p>GitHub PagesでWAV音声をindex.htmlと同じ階層から読み込むよう変更。</p></div><div class="history-entry"><b>v2.0.0</b><p>効果音をWAVファイル方式に変更し、再生エラー表示を追加。</p></div><div class="history-entry"><b>v1.9.9</b><p>iPhone向け効果音の再生方式を変更。</p></div><div class="history-entry"><b>v1.9.8</b><p>技選択時の対戦画面への自動スクロールと、効果音のテスト機能を追加。</p></div><div class="history-entry"><b>v1.9.7</b><p>タイプ相性の◎・◎◎などの表示を復活。本家風の相性・急所メッセージに変更。</p></div><div class="history-entry"><b>v1.9.6</b><p>ポケモン登場時の「いけ！」メッセージと鳴き声、技のⓘ説明ボタンを追加。</p></div><div class="history-entry"><b>v1.9.5</b><p>モンスターボール演出を削除。鳴き声と基本演出は維持。</p></div><div class="history-entry"><b>v1.9.4</b><p>相手ポケモンが倒れた後の表示とHPバーの不要な再アニメーションを修正。</p></div><div class="history-entry"><b>v1.9.3</b><p>こんらん、もうどく、一撃必殺、技の説明、HP・勝利演出、鳴き声などを追加。</p></div><div class="history-entry"><b>v1.9.2</b><p>能力ランク変化、急所、まもる、ひるみ、回復技などを調整。</p></div><div class="history-entry"><b>v1.9.1</b><p>吸収技とシャカシャカほうのHP回復処理を追加。</p></div><div class="history-entry"><b>v1.9.0</b><p>御三家などの専用技を優先して採用。</p></div><div class="history-entry"><b>v1.8.4</b><p>ソーラービーム、はかいこうせん、ギガインパクト、御三家究極技などを即撃ちで復帰。溜め・反動休みは省略し、がまんなど複数ターン処理が必要な技は引き続き除外。</p></div><div class="history-entry"><b>v1.8.1</b><p>フォルムとスタジアムを画像・カードで選択。フォルムの姿を選択画面とバトル画面に反映。</p></div><div class="history-entry"><b>v1.7.8</b><p>フォルム選択欄が画面に存在しなかった不具合を修正。デオキシス、ザシアンなどの姿を選択可能に。</p></div><div class="history-entry"><b>v1.7.7</b><p>技に物理・特殊・変化アイコンを追加。対戦中に攻撃・防御の種族値を比較表示。スタジアムを先に選択、効果を常時表示。対戦記録の修正・リセット、タイトル文言の整理。</p></div><div class="history-entry"><b>v1.7.6</b><p>専用技・御三家の究極技を優先。技の追加効果と状態異常を調整。メガリザードン・メガミュウツーのX/Y分岐を追加。</p></div><div class="history-entry"><b>v1.7.5</b><p>技の候補をレベル100までに覚えるレベルアップ技へ拡張。伝説ポケモンの高レベル習得技にも対応。バトルレベルは50のまま。</p></div><div class="history-entry"><b>v1.7.4</b><p>レベル100までのレベルアップ習得技をPokéAPIから取得。技名・PP・威力・命中率を反映。メガシンカ・キョダイマックスの画像取得を追加（一部画像未収録）。</p></div><div class="history-entry"><b>v1.7.3</b><p>バトル開始のデータ検証・エラー表示を強化。技変更を廃止し、ポケモン別の自動4技に変更。</p></div><div class="history-entry"><b>v1.7.2</b><p>重複ヘッダーを削除。日本語名の取得を強化し、表示前の読み込み・再取得機能を追加。履歴画面を新設。</p></div><div class="history-entry"><b>v1.7.1</b><p>世代選択と設定画面の表示を修正。</p></div><div class="history-entry"><b>v1.7</b><p>8種類のスタジアム、天候、洞窟のステルスロック、異次元、フォルム選択の一部を追加。</p></div><div class="history-entry"><b>v1.6</b><p>タイトル画面とスタジアム風デザインを追加。</p></div><div class="history-entry"><b>v1.5</b><p>チーム保存、技変更、状態異常、メガシンカ・キョダイマックスの試作。</p></div></section><section id="recordsPage" class="panel hide"><h2>🏆 対戦記録</h2><div id="recordContents"></div><div class="record-editor"><h3>✏️ 勝数を修正</h3><div class="setting-grid"><label id="recordLabel0">プレイヤー1<input id="recordWin0" type="number" min="0" step="1" inputmode="numeric"></label><label id="recordLabel1">プレイヤー2<input id="recordWin1" type="number" min="0" step="1" inputmode="numeric"></label></div><div class="teamtools"><button class="btn secondary" id="saveRecords">勝数を保存</button><button class="btn secondary" id="resetRecords">全記録をリセット</button></div><p id="recordStatus" class="status"></p></div><button class="btn secondary goHome">← タイトルへ</button></section><section id="settingsPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><div class="settings-heading"><span class="settings-symbol">⚙️</span><div><h2>バトル設定</h2><p>対戦する人と登場するポケモンを決めよう！</p></div></div><div class="settings-subtitle">🤖 CPU対戦の強さ</div><label class="setting-row">難易度 <select id="cpuDifficulty"><option value="easy">かんたん</option><option value="normal">ふつう</option><option value="hard">つよい</option></select></label><p id="cpuDifficultyHelp" class="cpu-difficulty-help" aria-live="polite"></p><div class="settings-subtitle">👥 プレイヤー</div><div class="setting-grid"><label>プレイヤー1<input id="name0" maxlength="16" placeholder="パパ"></label><label>プレイヤー2<input id="name1" maxlength="16" placeholder="だいき"></label></div><div class="settings-subtitle">📚 出場するシリーズ</div><p class="muted">好きな世代を複数選べるよ！</p><div class="gen-shortcuts"><button type="button" id="allGens" class="btn secondary">全部選ぶ</button><button type="button" id="firstGen" class="btn secondary">初代だけ</button></div><div id="genOptions" class="gens"></div><div class="settings-subtitle">✨ その他の設定</div><label class="setting-row final-option"><input type="checkbox" id="finalOnly"><span>最終進化のポケモンのみ<small>進化途中のポケモンを一覧から除外</small></span></label><p class="status">※最終進化判定はポケモン選択時に確認します。メガシンカ等は対象外。</p><p id="settingStatus" class="status"></p><button class="btn" id="saveSettings">設定を保存してタイトルへ →</button></section><section id="stadiumPage" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2>🏟️ まずスタジアムを選ぼう！</h2><div class="stadium-card"><h2>🏟️ スタジアムを選ぼう</h2><p class="muted">背景とバトル効果が変わるよ。迷ったら通常がおすすめ！</p><div id="stadiumCards" class="stadium-grid" aria-label="スタジアムを選ぶ"></div><select id="stadiumSelect" class="visually-hidden" aria-label="スタジアム"><option value="normal">🏟️ 通常スタジアム</option><option value="desert">🏜️ 砂漠</option><option value="sea">🌊 海</option><option value="volcano">🌋 火山</option><option value="snow">🏔️ 雪山</option><option value="fog">🌫️ 霧の森</option><option value="cave">🪨 洞窟</option><option value="dimension">🌌 異次元空間</option></select><p id="stadiumDesc" aria-live="polite">追加効果なし。基本のポケモンバトル。</p></div><p class="center"><button class="btn" id="confirmStadium">このスタジアムで対戦 →</button></p></section><section id="setup" class="panel hide"><button class="btn secondary goHome">← タイトルへ</button><h2 id="pickTitle">3匹選ぼう！</h2><p class="muted">好きなポケモンをタップ（3/3まで）。一覧はすぐ表示。選んだ6匹だけ通信して、次回のために保存します。</p><div class="filter-row"><label>シリーズ<select id="filterGen"><option value="all">すべてのシリーズ</option></select></label><label>タイプ<select id="filterType"><option value="all">すべてのタイプ</option></select></label></div><input class="search" id="searchBox" placeholder="🔎 名前で検索（例：ピカチュウ）" aria-label="名前で検索"><label>ポケモンを探す <select id="pokemonSelect"><option value="">一覧から選択</option></select></label><p id="selectionInfo" class="muted"></p><div id="formPickerArea" class="form-picker-area" aria-live="polite"></div><div class="teamtools"><button class="btn secondary" id="saveTeam">💾 この3匹を保存</button><button class="btn secondary" id="loadTeam">📂 保存した3匹を使う</button></div><p id="teamStatus" class="muted"></p><div class="pickgrid"><div id="choices" class="grid"></div></div><p class="center"><button class="btn" id="confirmPick" disabled>決定</button></p><p class="loading" id="loadMsg">ポケモンのデータを準備中…</p><button class="btn secondary" id="retryNames" type="button">🔄 日本語名を再取得</button></section><section id="game" class="hide"><div class="panel"><div class="topbar"><h2 id="turnTitle"></h2><span id="roundNumber" class="round">ROUND 1</span></div><div class="weather-hud" id="weatherHud">🏟️ 通常スタジアム</div><div id="weatherEffect" class="weather-effect"></div><div class="arena" id="arenaScene" data-stadium="normal"><div id="effect" class="effect"></div><div class="fighter" id="enemy"></div><div class="fighter reverse" id="ally"></div></div><div id="battleCompare" class="battle-compare"></div><div id="battlefeed" class="battlefeed">バトル開始！</div><div class="game-controls"><label class="toggle"><input type="checkbox" id="soundOn"> 🔊 ポケモンの鳴き声</label><label class="toggle"><input type="checkbox" id="fastMode"> 演出を短縮</label></div></div><div class="panel"><h2 id="actionTitle">行動を選ぼう</h2><div id="specialArea" class="special-actions"></div><div id="itemArea" class="item-action"></div><div id="moves" class="actions"></div><h2>ポケモンを交代</h2><div id="switches" class="switches"></div></div><div class="panel"><h2>バトル記録</h2><div class="log" id="log" aria-live="polite"></div></div></section><p class="center" id="restartWrap"><button class="btn secondary" id="restart">タイトルへ戻る</button></p></main><div id="itemTargetOverlay" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="itemTargetTitle"><h2 id="itemTargetTitle">🧴 かいふくのくすり</h2><p>回復するポケモンを選ぼう（使うと1ターン消費）</p><div id="itemTargets" class="item-targets"></div><button type="button" id="itemCancel" class="btn secondary item-cancel">やめる</button></div></div><div id="megaChoiceOverlay" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="megaChoiceTitle"><h2 id="megaChoiceTitle">✨ メガシンカ先を選ぼう</h2><p>好きな姿をタップしてね</p><div id="megaChoiceOptions" class="mega-choice-grid"></div><button type="button" id="megaChoiceCancel" class="btn secondary item-cancel">やめる</button></div></div><div id="moveInfo" class="item-target-overlay" hidden><div class="item-target-dialog" role="dialog" aria-modal="true" aria-labelledby="moveInfoTitle"><h2 id="moveInfoTitle"></h2><p id="moveInfoBody"></p><button type="button" id="moveInfoClose" class="btn secondary item-cancel">とじる</button></div></div><div id="overlay"><div class="modal-inner"><h2 id="overlayTitle"></h2><p id="overlayText"></p><div id="forcedChoices" class="forced-choices" hidden></div><button id="overlayButton" class="btn">OK！</button></div></div><script>
+// Shared Pokémon move rules v5. One source for both applications.
 const SharedMoveEffects = (() => {
   'use strict';
   const rows = {"absorb":{"drain":0.5},"acid-spray":{"target":{"special-defense":-2}},"agility":{"self":{"speed":2}},"air-slash":{"flinch":30},"amnesia":{"self":{"special-defense":2}},"aqua-step":{"self":{"speed":1}},"arm-cannon":{"self":{"defense":-1,"special-defense":-1}},"barrier":{"self":{"defense":2}},"bite":{"flinch":30},"blizzard":{"status":"freeze","chance":10},"body-slam":{"status":"paralysis","chance":30},"brave-bird":{"recoil":0.3333333333333333},"bulk-up":{"self":{"attack":1,"defense":1}},"bulldoze":{"target":{"speed":-1}},"calm-mind":{"self":{"special-attack":1,"special-defense":1}},"charm":{"target":{"attack":-2}},"close-combat":{"self":{"defense":-1,"special-defense":-1}},"coil":{"self":{"attack":1,"defense":1,"accuracy":1}},"confuse-ray":{"confuse":100,"accuracy":100},"cotton-spore":{"target":{"speed":-2}},"crunch":{"target":{"defense":-1},"chance":20},"dark-pulse":{"flinch":20},"defense-curl":{"self":{"defense":1}},"detect":{"protect":true,"priority":4},"discharge":{"status":"paralysis","chance":30},"double-edge":{"recoil":0.3333333333333333},"double-team":{"self":{"evasion":1}},"draco-meteor":{"self":{"special-attack":-2}},"dragon-ascent":{"self":{"defense":-1,"special-defense":-1}},"dragon-dance":{"self":{"attack":1,"speed":1}},"drain-punch":{"drain":0.5},"draining-kiss":{"drain":0.75},"dream-eater":{"drain":0.5,"requiresSleep":true},"drum-beating":{"target":{"speed":-1}},"earth-power":{"target":{"special-defense":-1},"chance":10},"ember":{"status":"burn","chance":10},"energy-ball":{"target":{"special-defense":-1},"chance":10},"fake-out":{"flinch":100,"priority":3},"fake-tears":{"target":{"special-defense":-2}},"feather-dance":{"target":{"attack":-2}},"fiery-wrath":{"flinch":20},"fire-blast":{"status":"burn","chance":10},"flame-charge":{"self":{"speed":1}},"flamethrower":{"status":"burn","chance":10},"flare-blitz":{"recoil":0.3333333333333333,"status":"burn","chance":10},"flash":{"target":{"accuracy":-1}},"flash-cannon":{"target":{"special-defense":-1},"chance":10},"flower-shield":{"self":{"defense":1}},"focus-blast":{"target":{"special-defense":-1},"chance":10},"freezing-glare":{"status":"freeze","chance":10},"geomancy":{"self":{"special-attack":2,"special-defense":2,"speed":2}},"giga-drain":{"drain":0.5},"growl":{"target":{"attack":-1}},"growth":{"self":{"attack":1,"special-attack":1}},"hammer-arm":{"self":{"speed":-1}},"harden":{"self":{"defense":1}},"head-smash":{"recoil":0.5},"headbutt":{"flinch":30},"heal-order":{"recover":0.5},"hone-claws":{"self":{"attack":1,"accuracy":1}},"horn-leech":{"drain":0.5},"howl":{"self":{"attack":1}},"hypnosis":{"status":"sleep","chance":100},"ice-beam":{"status":"freeze","chance":10},"ice-hammer":{"self":{"speed":-1}},"ice-punch":{"status":"freeze","chance":10},"icy-wind":{"target":{"speed":-1}},"iron-defense":{"self":{"defense":2}},"iron-head":{"flinch":30},"iron-tail":{"target":{"defense":-1},"chance":30},"kinesis":{"target":{"accuracy":-1}},"leaf-storm":{"self":{"special-attack":-2}},"leech-life":{"drain":0.5},"leer":{"target":{"defense":-1}},"liquidation":{"target":{"defense":-1},"chance":20},"lumina-crash":{"target":{"special-defense":-2}},"luster-purge":{"target":{"special-defense":-1},"chance":50},"make-it-rain":{"self":{"special-attack":-1}},"matcha-gotcha":{"status":"burn","chance":20},"meditate":{"self":{"attack":1}},"mega-drain":{"drain":0.5},"metal-sound":{"target":{"special-defense":-2}},"milk-drink":{"recover":0.5},"minimize":{"self":{"evasion":2}},"mist-ball":{"target":{"special-attack":-1},"chance":50},"moonblast":{"target":{"special-attack":-1},"chance":30},"moonlight":{"recover":0.5},"morning-sun":{"recover":0.5},"mud-shot":{"target":{"speed":-1}},"mystical-fire":{"target":{"special-attack":-1},"chance":100},"nasty-plot":{"self":{"special-attack":2}},"night-shade":{"fixedLevel":true,"type":"ghost","category":"special","accuracy":100,"priority":0},"oblivion-wing":{"drain":0.75},"outrage":{"rampage":true,"type":"dragon","category":"physical","power":120,"accuracy":100,"priority":0},"overheat":{"self":{"special-attack":-2}},"parabolic-charge":{"drain":0.5},"petal-dance":{"rampage":true,"type":"grass","category":"special","power":120,"accuracy":100,"priority":0},"poison-jab":{"status":"poison","chance":30},"poison-powder":{"status":"poison","chance":100},"power-up-punch":{"self":{"attack":1}},"protect":{"protect":true,"priority":4},"psychic":{"target":{"special-defense":-1},"chance":10},"quiver-dance":{"self":{"special-attack":1,"special-defense":1,"speed":1}},"razor-shell":{"target":{"defense":-1},"chance":50},"recover":{"recover":0.5},"rock-slide":{"flinch":30},"rock-smash":{"target":{"defense":-1},"chance":50},"rock-tomb":{"target":{"speed":-1}},"roost":{"recover":0.5},"sand-attack":{"target":{"accuracy":-1}},"scale-shot":{"self":{"defense":-1,"speed":1}},"scary-face":{"target":{"speed":-2}},"screech":{"target":{"defense":-2}},"seismic-toss":{"fixedLevel":true,"type":"fighting","category":"physical","accuracy":100,"priority":0},"shadow-ball":{"target":{"special-defense":-1},"chance":20},"sharpen":{"self":{"attack":1}},"shell-smash":{"self":{"attack":2,"special-attack":2,"speed":2,"defense":-1,"special-defense":-1}},"shore-up":{"recover":0.5},"sing":{"status":"sleep","chance":100},"slack-off":{"recover":0.5},"sleep-powder":{"status":"sleep","chance":100},"sludge":{"status":"poison","chance":30},"sludge-bomb":{"status":"poison","chance":30},"smokescreen":{"target":{"accuracy":-1}},"snarl":{"target":{"special-attack":-1}},"soft-boiled":{"recover":0.5},"spore":{"status":"sleep","chance":100},"stomp":{"flinch":30},"string-shot":{"target":{"speed":-2}},"struggle-bug":{"target":{"special-attack":-1}},"stun-spore":{"status":"paralysis","chance":100},"sucker-punch":{"priority":1},"superpower":{"self":{"attack":-1,"defense":-1}},"supersonic":{"confuse":100},"sweet-kiss":{"confuse":100},"swords-dance":{"self":{"attack":2}},"synthesis":{"recover":0.5},"tail-glow":{"self":{"special-attack":3}},"tail-whip":{"target":{"defense":-1}},"take-down":{"recoil":0.25},"teeter-dance":{"confuse":100},"thrash":{"rampage":true,"type":"normal","category":"physical","power":120,"accuracy":100,"priority":0},"thunder":{"status":"paralysis","chance":30},"thunder-punch":{"status":"paralysis","chance":10},"thunder-wave":{"status":"paralysis","chance":100},"thunderbolt":{"status":"paralysis","chance":10},"thunderous-kick":{"target":{"defense":-1}},"tickle":{"target":{"attack":-1,"defense":-1}},"torch-song":{"self":{"special-attack":1}},"toxic":{"status":"toxic","chance":100,"accuracy":90},"v-create":{"self":{"defense":-1,"special-defense":-1,"speed":-1}},"volt-tackle":{"recoil":0.3333333333333333,"status":"paralysis","chance":10},"waterfall":{"flinch":20},"wild-charge":{"recoil":0.25},"will-o-wisp":{"status":"burn","chance":100},"withdraw":{"self":{"defense":1}},"wood-hammer":{"recoil":0.3333333333333333},"work-up":{"self":{"attack":1,"special-attack":1}},"zen-headbutt":{"flinch":20}};
@@ -121,6 +121,42 @@ const SharedMoveEffects = (() => {
     'leech-seed':{type:'grass',category:'status',power:0,accuracy:90,priority:0,seed:true,leechSeed:true},
     swagger:{type:'normal',category:'status',power:0,accuracy:85,priority:0,target:{attack:2},confuse:100},
   });
+  const advanced = Object.create(null);
+  const addAdvanced = (slug, rule, type, category, power, accuracy) => {
+    advanced[slug]=Object.freeze(rule);
+    rows[slug]={...rows[slug], type, category, power, accuracy, priority:0};
+  };
+  for(const [slug,type,category,power,accuracy] of [
+    ['fire-spin','fire','special',35,85],['bind','normal','physical',15,85],
+    ['wrap','normal','physical',15,90],['whirlpool','water','special',35,85],
+    ['sand-tomb','ground','physical',35,85],['clamp','water','physical',35,85],
+    ['infestation','bug','special',20,100],['magma-storm','fire','special',100,75],
+    ['thunder-cage','electric','special',80,90],['snap-trap','grass','physical',35,100],
+  ]) addAdvanced(slug,{trap:true},type,category,power,accuracy);
+  for(const [slug,phase,type,power,accuracy] of [
+    ['fly','air','flying',90,95],['bounce','air','flying',85,85],
+    ['dig','ground','ground',80,100],['dive','water','water',80,100],
+  ]) addAdvanced(slug,{semi:phase},type,'physical',power,accuracy);
+  for(const [slug,type,power] of [['future-sight','psychic',120],['doom-desire','steel',140]])
+    addAdvanced(slug,{delayed:2},type,'special',power,100);
+  for(const [slug,type] of [['rollout','rock'],['ice-ball','ice']])
+    addAdvanced(slug,{rolling:true},type,'physical',30,90);
+  addAdvanced('stored-power',{stored:true},'psychic','special',20,100);
+  for(const [slug,type,category] of [
+    ['fissure','ground','physical'],['guillotine','normal','physical'],
+    ['horn-drill','normal','physical'],['sheer-cold','ice','special'],
+  ]) addAdvanced(slug,{ohko:true},type,category,0,30);
+  // Latest playable turn-based data, separate from regional learnsets.
+  for(const [slug,type,category,power,accuracy,priority=0] of [
+    ['brine','water','special',65,100],['venoshock','poison','special',65,100],
+    ['facade','normal','physical',70,100],['payback','dark','physical',50,100],
+    ['revenge','fighting','physical',60,100,-4],['avalanche','ice','physical',60,100,-4],
+    ['wake-up-slap','fighting','physical',70,100],['smelling-salts','normal','physical',70,100],
+    ['triple-kick','fighting','physical',10,90],['population-bomb','normal','physical',20,90],
+  ]) rows[slug]={...rows[slug],type,category,power,accuracy,priority};
+  // Current turn-based availability governs mechanics, not species learnsets.
+  rows['leech-life'].power=80;
+  rows['luster-purge'].power=95;
   for (const rule of Object.values(rows)) {
     if (rule.self) Object.freeze(rule.self);
     if (rule.target) Object.freeze(rule.target);
@@ -196,6 +232,28 @@ const SharedMoveEffects = (() => {
       return Math.max(1,Math.floor(basePower/2));
     return basePower;
   };
+  const matchesPoison = status => status==='poison'||status==='toxic';
+  const ignoresBurn = slug => slug==='facade';
+  const curedTargetStatus = (slug,status) =>
+    (slug==='wake-up-slap'&&status==='sleep')||(slug==='smelling-salts'&&status==='paralysis');
+  const conditionalPower = (slug,basePower,{targetHp,targetMaxHp,targetStatus,userStatus,targetActed,targetDamagedUser}={}) => {
+    let doubled;
+    switch(slug) {
+      case 'brine': doubled=targetMaxHp>0&&targetHp>=0&&targetHp*2<=targetMaxHp; break;
+      case 'venoshock': doubled=matchesPoison(targetStatus); break;
+      case 'facade': doubled=matchesPoison(userStatus)||userStatus==='burn'||userStatus==='paralysis'; break;
+      case 'payback': doubled=targetActed===true; break;
+      case 'revenge':
+      case 'avalanche': doubled=targetDamagedUser===true; break;
+      default: doubled=curedTargetStatus(slug,targetStatus);
+    }
+    return doubled?basePower*2:basePower;
+  };
+  const perHitRules=Object.freeze({
+    'triple-kick':Object.freeze({hits:3,ramp:true}),
+    'population-bomb':Object.freeze({hits:10,ramp:false}),
+  });
+  const perHitRule=slug=>Object.hasOwn(perHitRules,slug)?perHitRules[slug]:null;
   const healingFraction = (slug,weather) => {
     if(slug==='roost') return 1/2;
     if(!['synthesis','morning-sun','moonlight'].includes(slug)) return null;
@@ -219,7 +277,29 @@ const SharedMoveEffects = (() => {
     const damage=Math.min(targetHp,Math.max(1,Math.floor(targetBaseMaxHp/8)));
     return {damage,heal:Math.min(damage,Math.max(0,recipientMaxHp-recipientHp))};
   };
-  return Object.freeze({version:3, suckerPunchCanHit, canLeechSeed, leechSeedTick, fixedRules, incomingImmunity, weatherKind, weatherMove, movePower, healingFraction, conserveHp, secondaryKind, rules, normalize, damageBase, accuracyFactor, turns, toxicTick, confusionSelfHit, confusionDamage, protectChance, critChance});
+  const advancedRule=slug => advanced[slug]||empty;
+  const trapTurns=(rng=Math.random)=>4+Math.floor(rng()*2);
+  const trapTick=maxHp=>Math.max(1,Math.floor(maxHp/8));
+  const trapBlocks=(types=[])=>!types.includes('ghost');
+  const semiHits={
+    air:{gust:2,twister:2,thunder:1,hurricane:1,skyuppercut:1,'sky-uppercut':1,smackdown:1,'smack-down':1,'thousand-arrows':1},
+    ground:{earthquake:2,magnitude:2},
+    water:{surf:2,whirlpool:2},
+  };
+  const semiMultiplier=(slug,phase)=>{
+    if(!Object.hasOwn(semiHits,phase))return 1;
+    const hits=semiHits[phase];
+    return Object.hasOwn(hits,slug)?hits[slug]:0;
+  };
+  const storedPower=(stages=[])=>20+20*Array.from(stages?.[Symbol.iterator]?stages:Object.values(stages)).reduce((sum,n)=>sum+Math.max(0,Number(n)||0),0);
+  const rollingPower=(count=0,defenseCurl=false)=>30*(2**Math.min(4,Math.max(0,count)))*(defenseCurl?2:1);
+  const ohkoChance=(userLevel,targetLevel,userTypes=[],targetTypes=[],slug,dynamax=false)=>{
+    const delta=Math.floor(userLevel)-Math.floor(targetLevel);
+    if(!Number.isFinite(delta)||delta<0||dynamax)return 0;
+    if(slug==='sheer-cold'&&targetTypes.includes('ice'))return 0;
+    return Math.min(1,((slug==='sheer-cold'&&!userTypes.includes('ice')?20:30)+delta)/100);
+  };
+  return Object.freeze({version:5, conditionalPower, ignoresBurn, curedTargetStatus, perHitRule, advancedRule, trapTurns, trapTick, trapBlocks, semiMultiplier, storedPower, rollingPower, ohkoChance, suckerPunchCanHit, canLeechSeed, leechSeedTick, fixedRules, incomingImmunity, weatherKind, weatherMove, movePower, healingFraction, conserveHp, secondaryKind, rules, normalize, damageBase, accuracyFactor, turns, toxicTick, confusionSelfHit, confusionDamage, protectChance, critChance});
 })();
 
 const DX_STAGE_KEYS=['attack','defense','special-attack','special-defense','speed','accuracy','evasion'];
@@ -242,16 +322,61 @@ function dxKnownStatus(m){return dxProtect(m.slug)||dxRecover(m.slug)||dxStages(
 function dxHitChance(att,def,m){return Math.min(100,stadiumAccuracy(m)*SharedMoveEffects.accuracyFactor(att.stages?.[5]||0,def.stages?.[6]||0))}
 function dxFix(slug){return SharedMoveEffects.fixedRules(slug)||{}}
 function dxTurnLock(mon){
- const index=mon?.rechargeIndex??mon?.chargeIndex??rampageMoveIndex(mon);
+ const index=mon?.rechargeIndex??mon?.chargeIndex??mon?.rolling?.index??rampageMoveIndex(mon);
  return Number.isInteger(index)?index:-1;
 }
 function dxSelfStatus(m){
  return m.category==='status'&&!!dxStages(m.slug,'self')&&!dxStages(m.slug,'target')&&!m.status&&!CONFUSE_MOVES.has(m.slug);
 }
 function dxEffectiveTypes(mon){return mon.roosting&&mon.types.includes('flying')?(mon.types.length>1?mon.types.filter(t=>t!=='flying'):['normal']):mon.types}
+function dxAdvanced(slug){return SharedMoveEffects.advancedRule(slug)}
+function dxSwitchBlocked(x,source){
+ return !!(x?.binding?.source===source&&source?.hp>0&&SharedMoveEffects.trapBlocks(dxEffectiveTypes(x)));
+}
+function dxLeave(x,y){
+ if(y?.binding?.source===x){y.binding=null;say(y.name+'は とじこめから かいほうされた！')}
+ clearOnSwitch(x);
+}
+function dxTraps(){
+ for(const p of [0,1]){
+  const x=current(p),source=current(1-p),b=x.binding;
+  if(!b)continue;
+  if(x.hp<=0||source.hp<=0||b.source!==source){x.binding=null;continue}
+  const loss=Math.min(x.hp,SharedMoveEffects.trapTick(x.baseMaxHp??x.maxHp));
+  x.hp-=loss;say(x.name+'は '+b.name+'で '+loss+'ダメージ！');
+  if(--b.turns===0){x.binding=null;if(x.hp>0)say(x.name+'は とじこめから かいほうされた！')}
+ }
+}
+let dxFuture=[null,null];
+function dxScheduleFuture(side,source,move){
+ if(dxFuture[side])return false;
+ dxFuture[side]={round:round+dxAdvanced(move.slug).delayed,source,move:{...move}};
+ say(source.name+'は みらいに こうげきを しかけた！');
+ return true;
+}
+function dxResolveFuture(){
+ for(const p of [0,1]){
+  const e=dxFuture[p];if(!e||e.round>round)continue;
+  dxFuture[p]=null;
+  const target=current(p),{source,move}=e;
+  if(target.hp<=0)continue;
+  // Original user stays the attacker; an off-field user's stages were reset on departure.
+  const type=factor(move.type,target,move.slug);
+  if(type===0){say(move.name+'は '+target.name+'に こうかが ない！');continue}
+  const atk=source.stats[3]*stageFactor(source.stages?.[2]||0);
+  const def=Math.max(1,target.stats[4]*stageFactor(target.stages?.[3]||0)*stadiumDefenseMultiplier(target,move));
+  const crit=Math.random()<critChance(move)?1.5:1;
+  const damage=Math.min(target.hp,Math.max(1,Math.floor(SharedMoveEffects.damageBase(source.level||50,move.power,atk,def)*storyStab(source,move.type)*type*stadiumDamageMultiplier(move)*crit*(.85+Math.random()*.15))));
+  target.hp-=damage;
+  say(move.name+'が '+target.name+'に 命中！ '+damage+'ダメージ！');
+  if(target.hp<=0)say(target.name+'は倒れた！');
+ }
+}
 function dxSpecializedMove(m,x,y){
  const variant=SharedMoveEffects.weatherMove(m.slug,weather)||{};
- return {...m,...variant,power:SharedMoveEffects.movePower(m.slug,m.power,x.hp,x.maxHp,y.status,weather)};
+ const advanced=dxAdvanced(m.slug);
+ const power=advanced.stored?SharedMoveEffects.storedPower(x.stages||[]):advanced.rolling?SharedMoveEffects.rollingPower(x.rolling?.count||0,!!x.defenseCurl):SharedMoveEffects.movePower(m.slug,m.power,x.hp,x.maxHp,y.status,weather);
+ return {...m,...variant,power};
 }
 const names=['フシギダネ','フシギソウ','フシギバナ','ヒトカゲ','リザード','リザードン','ゼニガメ','カメール','カメックス','キャタピー','トランセル','バタフリー','ビードル','コクーン','スピアー','ポッポ','ピジョン','ピジョット','コラッタ','ラッタ','オニスズメ','オニドリル','アーボ','アーボック','ピカチュウ','ライチュウ','サンド','サンドパン','ニドラン♀','ニドリーナ','ニドクイン','ニドラン♂','ニドリーノ','ニドキング','ピッピ','ピクシー','ロコン','キュウコン','プリン','プクリン','ズバット','ゴルバット','ナゾノクサ','クサイハナ','ラフレシア','パラス','パラセクト','コンパン','モルフォン','ディグダ','ダグトリオ','ニャース','ペルシアン','コダック','ゴルダック','マンキー','オコリザル','ガーディ','ウインディ','ニョロモ','ニョロゾ','ニョロボン','ケーシィ','ユンゲラー','フーディン','ワンリキー','ゴーリキー','カイリキー','マダツボミ','ウツドン','ウツボット','メノクラゲ','ドククラゲ','イシツブテ','ゴローン','ゴローニャ','ポニータ','ギャロップ','ヤドン','ヤドラン','コイル','レアコイル','カモネギ','ドードー','ドードリオ','パウワウ','ジュゴン','ベトベター','ベトベトン','シェルダー','パルシェン','ゴース','ゴースト','ゲンガー','イワーク','スリープ','スリーパー','クラブ','キングラー','ビリリダマ','マルマイン','タマタマ','ナッシー','カラカラ','ガラガラ','サワムラー','エビワラー','ベロリンガ','ドガース','マタドガス','サイホーン','サイドン','ラッキー','モンジャラ','ガルーラ','タッツー','シードラ','トサキント','アズマオウ','ヒトデマン','スターミー','バリヤード','ストライク','ルージュラ','エレブー','ブーバー','カイロス','ケンタロス','コイキング','ギャラドス','ラプラス','メタモン','イーブイ','シャワーズ','サンダース','ブースター','ポリゴン','オムナイト','オムスター','カブト','カブトプス','プテラ','カビゴン','フリーザー','サンダー','ファイヤー','ミニリュウ','ハクリュー','カイリュー','ミュウツー','ミュウ'];
 const typeJP={normal:'ノーマル',grass:'くさ',fire:'ほのお',water:'みず',electric:'でんき',ice:'こおり',fighting:'かくとう',poison:'どく',ground:'じめん',flying:'ひこう',psychic:'エスパー',bug:'むし',rock:'いわ',ghost:'ゴースト',dragon:'ドラゴン',dark:'あく',steel:'はがね',fairy:'フェアリー'};
@@ -756,13 +881,12 @@ const FIXED_DAMAGE_MOVES={
 const EXCLUDED_MOVE_SLUGS=new Set([
  'final-gambit','bide',
  'fleur-cannon',
- 'fly','dig','dive','bounce','phantom-force','shadow-force',
- 'uproar','rollout','ice-ball','rampage',
- 'future-sight','doom-desire','wish','yawn','perish-song','bind','wrap','fire-spin','whirlpool',
- 'sand-tomb','magma-storm','infestation','snap-trap','thunder-cage','clamp',
+ 'bounce','phantom-force','shadow-force',
+ 'uproar','rampage',
+ 'wish','yawn','perish-song',
  'sleep-talk','snore','substitute','endure','counter','mirror-coat',
  'metal-burst','focus-punch','shell-trap','beak-blast','pursuit','last-resort',
- 'reversal','flail','gyro-ball','electro-ball','stored-power','power-trip','heavy-slam','heat-crash',
+ 'reversal','flail','gyro-ball','electro-ball','power-trip','heavy-slam','heat-crash',
  'low-kick','grass-knot','crush-grip','wring-out','trump-card','spit-up','present','magnitude',
  'ohko','destiny-bond','grudge','self-destruct','explosion',
  'memento','healing-wish','lunar-dance','steel-beam','mind-blown','misty-explosion',
@@ -799,7 +923,7 @@ function specialDamage(m,attacker,defender){
  if(rule.kind==='selfhp')return attacker.hp;
  return null;
 }
-function movePowerText(m){return FIXED_DAMAGE_MOVES[m.slug]?.label||('威力'+m.power+(MULTI_HIT_MOVES[m.slug]?' × 連続':'')+(RECOIL_MOVES[m.slug]?' / 反動あり':'')+(DRAIN_MOVES[m.slug]?' / HP吸収':''))}
+function movePowerText(m){return (OHKO_MOVES.has(m.slug)?'一撃必殺':FIXED_DAMAGE_MOVES[m.slug]?.label)||('威力'+m.power+(MULTI_HIT_MOVES[m.slug]?' × 連続':'')+(RECOIL_MOVES[m.slug]?' / 反動あり':'')+(DRAIN_MOVES[m.slug]?' / HP吸収':''))}
 // v1.9.3: simplified battle effects (stat stages, recovery, protect, flinch, critical hits).
 const STAGE_NAMES=['こうげき','ぼうぎょ','とくこう','とくぼう','すばやさ','命中','回避'];
 const STAGE_MOVES={
@@ -835,7 +959,9 @@ const CONFUSE_MOVES=new Set(['confuse-ray','supersonic','teeter-dance','sweet-ki
 const OHKO_MOVES=new Set(['fissure','guillotine','horn-drill','sheer-cold']);
 const STATUS_ONLY_MOVES=new Set(['toxic','will-o-wisp','thunder-wave','sleep-powder','spore','hypnosis','sing','poison-powder',...CONFUSE_MOVES]);
 const STATUS_JP={toxic:'もうどく',poison:'どく',burn:'やけど',paralysis:'まひ',sleep:'ねむり',freeze:'こおり'};
+const DX_STAGED_MOVE_SLUGS=new Set(['brine','venoshock','facade','payback','revenge','avalanche','wake-up-slap','smelling-salts','triple-kick','population-bomb']);
 function decorateMove(m){
+ if(Object.keys(dxAdvanced(m.slug)).length||DX_STAGED_MOVE_SLUGS.has(m.slug))m=SharedMoveEffects.normalize(m);
  const rule=dxMoveRule(m.slug), effect=STATUS_EFFECTS[m.slug];
  const overrides=Object.fromEntries(['type','power','accuracy','priority','category'].filter(k=>rule[k]!==undefined).map(k=>[k,rule[k]]));
  const status=rule.status?{status:rule.status,chance:(rule.chance??100)/100}:(effect?{status:effect[0],chance:effect[1]}:{});
@@ -864,7 +990,7 @@ async function fetchLevelMoves(id,pokemonData){
  const reserved=[...new Set([...(eligible('petal-dance')?['petal-dance']:[]),...requiredMoveSlugs(id)])].slice(0,4);
  const ownTypes=pokemonData.types.map(t=>t.type.name);
  // Only actual form-specific level-up moves qualify. Keep space for both offensive types.
- const additions=['sucker-punch','leech-seed'].filter(eligible).slice(0,Math.max(0,4-ownTypes.length-reserved.length));
+ const additions=['sucker-punch','leech-seed','fire-spin','bind','wrap','whirlpool','sand-tomb','magma-storm','infestation','snap-trap','thunder-cage','clamp','fly','dig','dive','future-sight','doom-desire','rollout','ice-ball','stored-power','fissure','guillotine','horn-drill','sheer-cold'].filter(eligible).slice(0,Math.max(0,4-ownTypes.length-reserved.length));
  if([...reserved,...additions].every(slug=>levelMoveCache[key]?.some(m=>m.slug===slug))&&levelMoveCache[key]?.length===4&&levelMoveCache[key].every(supportedMove) && pokemonData.types.every(t=>hasSameTypeAttack(levelMoveCache[key],t.type.name)))return levelMoveCache[key];
  const candidates=pokemonData.moves.map(entry=>{
    const versions=entry.version_group_details.filter(v=>v.move_learn_method.name==='level-up'&&v.level_learned_at<=100);
@@ -880,7 +1006,7 @@ async function fetchLevelMoves(id,pokemonData){
    try{const r=await fetch('https://pokeapi.co/api/v2/move/'+c.slug+'/');if(!r.ok)continue;const d=await r.json();
      const name=d.names.find(n=>n.language.name==='ja-Hrkt')?.name||d.names.find(n=>n.language.name==='ja')?.name||c.slug;
      const category=d.damage_class.name;
-     if((category==='status'&&!dxKnownStatus({slug:c.slug}))||EXCLUDED_MOVE_SLUGS.has(c.slug)||(d.power===null&&category!=='status'&&!FIXED_DAMAGE_MOVES[c.slug]&&!dxMoveRule(c.slug).fixedLevel))continue;
+     if((category==='status'&&!dxKnownStatus({slug:c.slug}))||EXCLUDED_MOVE_SLUGS.has(c.slug)||(d.power===null&&category!=='status'&&!FIXED_DAMAGE_MOVES[c.slug]&&!dxMoveRule(c.slug).fixedLevel&&!OHKO_MOVES.has(c.slug)))continue;
      if(!output.some(m=>m.slug===c.slug))output.push(decorateMove({name,type:d.type.name,power:d.power||0,pp:d.pp||5,accuracy:d.accuracy??100,category,priority:d.priority||0,slug:c.slug}));
    }catch(e){console.warn('技データ取得に失敗',c.slug,e)}
  }
@@ -888,7 +1014,7 @@ async function fetchLevelMoves(id,pokemonData){
  if(output.length<4)for(const c of candidates){if(output.length>=4)break;if(output.some(m=>m.slug===c.slug)||EXCLUDED_MOVE_SLUGS.has(c.slug))continue;
    try{const r=await fetch('https://pokeapi.co/api/v2/move/'+c.slug+'/');if(!r.ok)continue;const d=await r.json();
    const name=d.names.find(n=>n.language.name==='ja-Hrkt')?.name||d.names.find(n=>n.language.name==='ja')?.name||c.slug;
-   if(d.damage_class.name==='status'||d.power>0||FIXED_DAMAGE_MOVES[c.slug])output.push(decorateMove({name,type:d.type.name,power:d.power||0,pp:d.pp||5,accuracy:d.accuracy??100,category:d.damage_class.name,priority:d.priority||0,slug:c.slug}));}catch(e){}
+   if(d.damage_class.name==='status'||d.power>0||FIXED_DAMAGE_MOVES[c.slug]||OHKO_MOVES.has(c.slug))output.push(decorateMove({name,type:d.type.name,power:d.power||0,pp:d.pp||5,accuracy:d.accuracy??100,category:d.damage_class.name,priority:d.priority||0,slug:c.slug}));}catch(e){}
  }
  // Lv.100までに覚える技が4つ未満の場合のみ、暫定技で不足枠を埋める。
  const fallback=automaticMoves(id,pokemonData.types.map(t=>t.type.name));
@@ -990,7 +1116,7 @@ function afterTurnStatus(){for(let p=0;p<2;p++){const x=current(p);if(!x||x.hp<=
  const d=x.status==='toxic'?SharedMoveEffects.toxicTick(x.maxHp,x.toxicTurns):Math.max(1,Math.floor(x.maxHp*(x.status==='poison'?1/8:1/16)));
  x.hp=Math.max(0,x.hp-d);say(`${x.name}は ${STATUS_JP[x.status]} で ${d}ダメージ！`);
 }}}
-function clearOnSwitch(x){x.stages=[0,0,0,0,0,0,0];x.protectChain=0;x.confusionTurns=0;x.rampage=null;x.toxicTurns=0;x.activeTurnUsed=false;x.chargeIndex=null;x.rechargeIndex=null;x.roosting=false;x.leechSeeded=false}
+function clearOnSwitch(x){x.stages=[0,0,0,0,0,0,0];x.protectChain=0;x.confusionTurns=0;x.rampage=null;x.toxicTurns=0;x.activeTurnUsed=false;x.chargeIndex=null;x.rechargeIndex=null;x.roosting=false;x.leechSeeded=false;x.binding=null;x.semiPhase=null;x.rolling=null;x.defenseCurl=false}
 function dxAttackIntent(owner,acted){
  const cmd=commands[owner], target=current(owner), move=cmd?.kind==='move'?target.moves[cmd.index]:null;
  return SharedMoveEffects.suckerPunchCanHit(move,acted.has(owner),target.rechargeIndex!=null);
@@ -1010,10 +1136,22 @@ function cancelPetalDance(x){if(rampageMoveIndex(x)>=0){const confuseLast=x.ramp
 function completePetalDance(x,m){if(rampageMoveIndex(x)<0)x.rampage={slug:m.slug,remaining:SharedMoveEffects.turns('rampage')};if(--x.rampage.remaining<=0){x.rampage=null;confuse(x,true)}}
 async function finishConfusionKO(p,x){
  say(x.name+'は倒れた！');await pause(400);
- if(!alive(p)){const winner=1-p;finished=true;busy=false;wins[winner]++;saveWinnerTeam(winner);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));showVictory(winner);return}
- forced=p;commands=[null,null];phase=forced;busy=false;render();showForcedSwitch();
+ dxProcessInterruptedRound(p);
 }
-function oneHitKO(m,x,y){if(x.level<y.level)return false;const acc=(m.slug==='sheer-cold'&&!x.types.includes('ice')?20:30)+(x.level-y.level);return Math.random()*100<acc}
+function dxProcessInterruptedRound(defaultForced){
+ dxResolveFuture();
+ const living=[alive(0),alive(1)];
+ commands=[null,null];busy=false;
+ if(!living[0]||!living[1]){
+  finished=true;
+  if(!living[0]&&!living[1]){render();show('🤝 引き分け！','両チームのポケモンがすべて倒れた！','タイトルへ',()=>location.reload());return}
+  const winner=living[0]?0:1;wins[winner]++;saveWinnerTeam(winner);
+  if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));
+  render();showVictory(winner);return;
+ }
+ forced=current(defaultForced).hp<=0?defaultForced:1-defaultForced;phase=forced;render();showForcedSwitch();
+}
+function oneHitKO(m,x,y){return Math.random()<SharedMoveEffects.ohkoChance(x.level||50,y.level||50,dxEffectiveTypes(x),dxEffectiveTypes(y),m.slug,y.gmax>0)}
 function chooseMoves(){let x=current(phase), pool=[...x.types.map(move),...Object.keys(movesByType).map(move),...fallbackMoves,{name:'でんじは',type:'electric',power:0,accuracy:90,category:'status',status:'paralysis'},{name:'どくどく',type:'poison',power:0,accuracy:90,category:'status',status:'poison'},{name:'おにび',type:'fire',power:0,accuracy:85,category:'status',status:'burn'}];let text=pool.map((m,i)=>`${i+1}: ${m.name}`).join('\n');let answer=prompt(`${x.name}の技を4つ選ぼう。番号をカンマで区切って入力（例: 1,2,3,4）\n※候補は簡易リストです。`,text);if(!answer)return;let ids=answer.split(/[,、，\s]+/).map(Number);if(ids.length!==4||ids.some(n=>!Number.isInteger(n)||n<1||n>pool.length)){alert('番号を4つ選んでね');return}x.moves=ids.map(n=>({...pool[n-1],pp:15}));let saved={};try{saved=JSON.parse(localStorage.getItem('parentbattle-moves-v15')||'{}')}catch(e){}saved[x.id]=x.moves;localStorage.setItem('parentbattle-moves-v15',JSON.stringify(saved));render()}
 $('saveTeam').onclick=()=>{let x={};try{x=JSON.parse(localStorage.getItem(TEAMKEY)||'{}')}catch(e){}x[picker]=[...picked[picker]];localStorage.setItem(TEAMKEY,JSON.stringify(x));$('teamStatus').textContent=`${player(picker)}のチームを保存したよ！`};
 $('loadTeam').onclick=()=>{let x={};try{x=JSON.parse(localStorage.getItem(TEAMKEY)||'{}')}catch(e){}let a=(x[picker]||[]).filter(id=>dexMap.has(id));if(a.length!==3){$('teamStatus').textContent='このシリーズで使える保存チームが見つからないよ';return}picked[picker]=a;renderPick();$('teamStatus').textContent='保存したチームを読み込んだよ！'};
@@ -1037,7 +1175,7 @@ function cpuPickAction(){
  moves.sort((a,b)=>score(b)-score(a));
  if(cpuDifficulty==='hard'){
   const best=score(moves[0]), switchTo=cpuSwitchChoice();
-  if(!storyMode&&switchTo!==undefined&&switchTo!==active[1]&&x.hp<x.maxHp*.55&&best<45&&Math.random()<.65)return {kind:'switch',index:switchTo};
+  if(!storyMode&&!dxSwitchBlocked(x,y)&&switchTo!==undefined&&switchTo!==active[1]&&x.hp<x.maxHp*.55&&best<45&&Math.random()<.65)return {kind:'switch',index:switchTo};
   if(!storyMode&&!usedSpecial[1]&&!pendingSpecial[1]){if(MEGA_IDS.has(x.id)){pendingSpecial[1]='mega';const opts=megaVariantsFor(x.id);if(opts.length)x.megaVariant=opts[Math.floor(Math.random()*opts.length)];}else if(GMAX_IDS.has(x.id))pendingSpecial[1]='gmax'}
   if(!storyMode&&!usedPotion[1]&&x.hp<x.maxHp*.27&&Math.random()<.6)return {kind:'potion',index:active[1]};
   return {kind:'move',index:moves[0].index};
@@ -1089,7 +1227,7 @@ function applyStoryAceGimmick(){
 }
 function storyStab(x,moveType){return x.terastallized?(x.teraOriginalTypes?.includes(moveType)?1.5:1)*(x.types.includes(moveType)?1.5:1):x.types.includes(moveType)?1.5:1}
 
-function start(){if(cpuMode){wins=[0,0]}else{try{wins=JSON.parse(localStorage.getItem(WINSKEY)||'[0,0]')}catch(e){wins=[0,0]}}teams=picked.map((arr,owner)=>arr.map(id=>makePoke(id,owner)));if(storyMode&&storyOpponent?.region==='legend'&&storyOpponent.legendCount<3){for(let i=0;i<3-storyOpponent.legendCount;i++)teams[1][i].hp=0;active=[0,3-storyOpponent.legendCount]}if(teams.length!==2||teams.some(t=>t.length!==3||t.some(p=>!p.moves||p.moves.length!==4||!p.stats||!p.types)))throw Error('バトル用データの準備に失敗しました。もう一度ポケモンを選んでね。');hidePages();$('game').classList.remove('hide');$('restartWrap').classList.remove('hide');commands=[null,null];usedSpecial=[false,false];pendingSpecial=[null,null];usedPotion=[false,false];$('itemTargetOverlay').hidden=true;$('moveInfo').hidden=true;$('megaChoiceOverlay').hidden=true;phase=0;forced=null;finished=false;round=1;busy=false;active=storyMode&&storyOpponent?.region==='legend'?[0,3-storyOpponent.legendCount]:[0,0];$('log').innerHTML='';$('battlefeed').textContent='バトル開始！ 技を選ぼう！';note((storyMode?'🏅 '+storyOpponent.gym+' '+storyOpponent.name+'戦':cpuMode?'🤖 CPU戦（'+({easy:'かんたん',normal:'ふつう',hard:'つよい'}[cpuDifficulty]+'）'):'👥 2人対戦')+(storyMode&&storyOpponent?.legend?'：伝説ポケモン1匹を倒したら勝ち！':'：'+(storyMode?'相手の':'先に相手の')+(3-storyRosterStart(storyMode?storyOpponent:null))+'匹を倒したら勝ち！'));stadiumBegin();applyStoryAceGimmick();render();showSendout(current(0));setTimeout(()=>showSendout(current(1)),740);promptPlayer(0)}
+function start(){dxFuture=[null,null];if(cpuMode){wins=[0,0]}else{try{wins=JSON.parse(localStorage.getItem(WINSKEY)||'[0,0]')}catch(e){wins=[0,0]}}teams=picked.map((arr,owner)=>arr.map(id=>makePoke(id,owner)));if(storyMode&&storyOpponent?.region==='legend'&&storyOpponent.legendCount<3){for(let i=0;i<3-storyOpponent.legendCount;i++)teams[1][i].hp=0;active=[0,3-storyOpponent.legendCount]}if(teams.length!==2||teams.some(t=>t.length!==3||t.some(p=>!p.moves||p.moves.length!==4||!p.stats||!p.types)))throw Error('バトル用データの準備に失敗しました。もう一度ポケモンを選んでね。');hidePages();$('game').classList.remove('hide');$('restartWrap').classList.remove('hide');commands=[null,null];usedSpecial=[false,false];pendingSpecial=[null,null];usedPotion=[false,false];$('itemTargetOverlay').hidden=true;$('moveInfo').hidden=true;$('megaChoiceOverlay').hidden=true;phase=0;forced=null;finished=false;round=1;busy=false;active=storyMode&&storyOpponent?.region==='legend'?[0,3-storyOpponent.legendCount]:[0,0];$('log').innerHTML='';$('battlefeed').textContent='バトル開始！ 技を選ぼう！';note((storyMode?'🏅 '+storyOpponent.gym+' '+storyOpponent.name+'戦':cpuMode?'🤖 CPU戦（'+({easy:'かんたん',normal:'ふつう',hard:'つよい'}[cpuDifficulty]+'）'):'👥 2人対戦')+(storyMode&&storyOpponent?.legend?'：伝説ポケモン1匹を倒したら勝ち！':'：'+(storyMode?'相手の':'先に相手の')+(3-storyRosterStart(storyMode?storyOpponent:null))+'匹を倒したら勝ち！'));stadiumBegin();applyStoryAceGimmick();render();showSendout(current(0));setTimeout(()=>showSendout(current(1)),740);promptPlayer(0)}
 function current(p){return teams[p][active[p]]}function alive(p){return teams[p].some(x=>x.hp>0)}function bar(p,reverse){let x=current(p),pct=Math.max(0,x.hp/x.maxHp*100);return `<div class="fighter ${reverse?'reverse':''}"><img src="${x.specialSprite||(reverse?(x.formBackSprite||x.formSprite):(x.formSprite))||img(x.id,reverse)}" onerror="this.src='${img(x.id)}'" alt="${x.name}"><div class="stats"><b>${x.name}</b> <span class="tag">Lv.${x.level||50}</span>${x.leechSeeded?'<span class="tag">🌱 やどりぎ</span>':''}<p class="muted">${x.types.map(t=>typeJP[t]).join(' / ')}</p><div class="hp"><div class="hp-fill" style="width:${pct}%;background:${pct>50?'#39b87b':pct>20?'#eab64c':'#e26b67'}"></div></div><small>HP ${x.hp} / ${x.maxHp} ${x.status?'｜'+({toxic:'もうどく',poison:'どく',burn:'やけど',paralysis:'まひ',sleep:'ねむり',freeze:'こおり'}[x.status]||x.status):''} ${x.isTotem?'｜👑 ぬし HP×1.5':''}${x.gmax?'｜キョダイマックス':''}${x.terastallized?'｜テラスタル':''}${x.mega?'｜メガシンカ':''} ${x.stages?.some(v=>v!==0)?'｜能力 '+x.stages.map((v,i)=>v?STAGE_NAMES[i]+(v>0?'+':'')+v:'').filter(Boolean).join(' '):''}</small></div></div>`}
 function renderComparison(){
  const me=current(phase),foe=current(1-phase),root=$('battleCompare');if(!me||!foe){root.innerHTML='';return}
@@ -1104,6 +1242,21 @@ function moveDescription(m){const lines=[`${typeJP[m.type]} / ${m.category==='ph
  if(dxFix(m.slug).roost)lines.push('回復したターンだけ ひこうタイプを失う');
  if(dxMoveRule(m.slug).confuse===100&&!CONFUSE_MOVES.has(m.slug))lines.push('相手を2〜4ターンこんらんさせる');
  if(dxMoveRule(m.slug).suckerPunch)lines.push('相手がまだ行動しておらず、攻撃技を出す場合だけ成功する');
+ const advanced=dxAdvanced(m.slug);
+ if(m.slug==='brine')lines.push('相手の残りHPが半分以下なら威力2倍');
+ if(m.slug==='venoshock')lines.push('相手がどく・もうどくなら威力2倍');
+ if(m.slug==='facade')lines.push('自分がどく・もうどく・まひ・やけどなら威力2倍。やけどで威力は落ちない');
+ if(m.slug==='payback')lines.push('相手が先に行動していたら威力2倍。交代で出た相手には威力は変わらない');
+ if(m.slug==='revenge'||m.slug==='avalanche')lines.push('このターンに相手の技でダメージを受けていたら威力2倍');
+ if(m.slug==='wake-up-slap')lines.push('ねむっている相手には威力2倍。命中するとねむりを治す');
+ if(m.slug==='smelling-salts')lines.push('まひした相手には威力2倍。命中するとまひを治す');
+ if(m.slug==='triple-kick')lines.push('威力10・20・30の順で最大3回。当たらなければそこで止まる');
+ if(m.slug==='population-bomb')lines.push('最大10回。1発ごとに命中を判定し、外れたらそこで止まる');
+ if(advanced.trap)lines.push('4〜5ターン とじこめ、毎ターン最大HPの1/8をへらす（ゴーストは交代できる）');
+ if(advanced.semi)lines.push('1ターン身をかくし、次のターンに攻撃。身をかくしている間、多くの技が当たらない');
+ if(advanced.delayed)lines.push('2ターン後の終わりに、その場所にいる相手を攻撃する');
+ if(advanced.stored)lines.push('自分の能力ランクのプラス1段階ごとに威力が20上がる');
+ if(advanced.rolling)lines.push('最大5ターン続き、当たるたびに威力が2倍。まるくなるの後はさらに2倍');
  if(dxMoveRule(m.slug).leechSeed)lines.push('毎ターン相手の最大HPの1/8を吸収。くさタイプには無効、相手が交代するまで続く');
  if(m.slug==='false-swipe')lines.push('相手のHPを1以上残す');
  if(['eruption','water-spout'].includes(m.slug))lines.push('自分の残りHPが多いほど強い');
@@ -1133,7 +1286,7 @@ for(const [id,owner] of [['enemy',opp],['ally',me]]){
   const target=fill.style.width;fill.style.transition='none';fill.style.width=previous.width;
   void fill.offsetWidth;fill.style.transition='width .65s ease,background-color .65s ease';requestAnimationFrame(()=>{if(box.dataset.monKey===key)fill.style.width=target});
  }
-}$('turnTitle').textContent=`${player(me)} の番（${wins[0]}勝 - ${wins[1]}勝）`;let x=current(me);$('moves').innerHTML='';x.moves.forEach((m,i)=>{let b=document.createElement('button');b.className='btn secondary movebtn';let mult=m.category==='status'?1:factor(m.type,current(opp),m.slug);let sym=mult===0?'×':mult>=4?'◎◎':mult>1?'◎':mult<1?'△':'○';let label=mult===0?'こうかなし':mult>1?'ばつぐん':mult<1?'いまひとつ':'ふつう';let cls=mult===0?'none':mult>1?'super':mult<1?'weak':'normal';let cat=m.category==='physical'?'💥 物理':m.category==='special'?'🌀 特殊':'◯ 変化';b.setAttribute('aria-label',`${m.name} ${label} ${typeJP[m.type]} ${movePowerText(m)} PP${m.pp}`);b.innerHTML=`<span class="move-top"><span>${m.name}</span><span class="effect-symbol effect-${cls}">${sym}</span></span><span class="effect-label effect-${cls}">${label}</span><span class="move-meta"><span class="move-category ${m.category}">${cat}</span> ${typeJP[m.type]} / ${movePowerText(m)} / PP${m.pp}${m.status?' / '+STATUS_JP[m.status]+' '+Math.round((m.chance??1)*100)+'%':''}</span>`;b.disabled=dxTurnLock(x)>=0||m.pp<=0||forced!==null||busy||(cpuMode&&phase===1);bindMovePress(b,m,i);const slot=document.createElement('div');slot.className='move-slot';slot.append(b);const info=document.createElement('button');info.type='button';info.className='move-info-button';info.textContent='ⓘ';info.setAttribute('aria-label',m.name+'の説明を見る');info.title=m.name+'の説明';info.onclick=()=>showMoveInfo(m);slot.append(info);$('moves').append(slot)});$('switches').innerHTML='';teams[me].forEach((p,i)=>{let b=document.createElement('button');b.innerHTML=`<img src="${img(p.id)}"><br><small>${p.name}<br>HP ${p.hp}/${p.maxHp}</small>`;b.disabled=dxTurnLock(x)>=0||p.hp<=0||i===active[me]||(cpuMode&&phase===1);b.onclick=()=>selectCommand({kind:'switch',index:i});$('switches').append(b)});renderSpecial();renderItemAction();$('actionTitle').textContent=forced!==null?'倒れたポケモンの代わりを選んでね':'技を選ぶか、ポケモンを交代しよう'}
+}$('turnTitle').textContent=`${player(me)} の番（${wins[0]}勝 - ${wins[1]}勝）`;let x=current(me);$('moves').innerHTML='';x.moves.forEach((m,i)=>{let b=document.createElement('button');b.className='btn secondary movebtn';let mult=m.category==='status'?1:factor(m.type,current(opp),m.slug);let sym=mult===0?'×':mult>=4?'◎◎':mult>1?'◎':mult<1?'△':'○';let label=mult===0?'こうかなし':mult>1?'ばつぐん':mult<1?'いまひとつ':'ふつう';let cls=mult===0?'none':mult>1?'super':mult<1?'weak':'normal';let cat=m.category==='physical'?'💥 物理':m.category==='special'?'🌀 特殊':'◯ 変化';b.setAttribute('aria-label',`${m.name} ${label} ${typeJP[m.type]} ${movePowerText(m)} PP${m.pp}`);b.innerHTML=`<span class="move-top"><span>${m.name}</span><span class="effect-symbol effect-${cls}">${sym}</span></span><span class="effect-label effect-${cls}">${label}</span><span class="move-meta"><span class="move-category ${m.category}">${cat}</span> ${typeJP[m.type]} / ${movePowerText(m)} / PP${m.pp}${m.status?' / '+STATUS_JP[m.status]+' '+Math.round((m.chance??1)*100)+'%':''}</span>`;b.disabled=dxTurnLock(x)>=0||m.pp<=0||forced!==null||busy||(cpuMode&&phase===1);bindMovePress(b,m,i);const slot=document.createElement('div');slot.className='move-slot';slot.append(b);const info=document.createElement('button');info.type='button';info.className='move-info-button';info.textContent='ⓘ';info.setAttribute('aria-label',m.name+'の説明を見る');info.title=m.name+'の説明';info.onclick=()=>showMoveInfo(m);slot.append(info);$('moves').append(slot)});$('switches').innerHTML='';teams[me].forEach((p,i)=>{let b=document.createElement('button');b.innerHTML=`<img src="${img(p.id)}"><br><small>${p.name}<br>HP ${p.hp}/${p.maxHp}</small>`;b.disabled=dxTurnLock(x)>=0||dxSwitchBlocked(x,current(opp))||p.hp<=0||i===active[me]||(cpuMode&&phase===1);b.onclick=()=>selectCommand({kind:'switch',index:i});$('switches').append(b)});renderSpecial();renderItemAction();$('actionTitle').textContent=forced!==null?'倒れたポケモンの代わりを選んでね':'技を選ぶか、ポケモンを交代しよう'}
 function renderItemAction(){
  const root=$('itemArea');if(!root)return;root.innerHTML='';const p=phase;
  const button=document.createElement('button');button.type='button';
@@ -1161,15 +1314,16 @@ function playCry(mon){if(!$('soundOn').checked||!mon)return;try{const a=new Audi
 function showVictory(winner){if(storyMode&&winner===0&&!adminMode)storyClear();const storyWon=storyMode&&winner===0&&!adminMode;show(storyWon?'🏅 '+storyOpponent.gym+'クリア！':`🏆 ${player(winner)} の勝ち！`,storyWon?storyOpponent.name+'に勝った！ おめでとう！ クリア記録を保存したよ。':(3-(winner===0&&storyMode?storyRosterStart(storyOpponent):0))+'匹を倒した！ おめでとう！',storyMode?(adminMode?'管理者モードへ':'ストーリーへ'):'タイトルへ',()=>{if(storyMode){showStory();if(!adminMode)renderHomeTeam()}else location.reload()});const h=$('overlayTitle');h.classList.add('victory-title');if(storyWon&&!adminMode&&GYM_BADGE_REGIONS.has(storyOpponent.region)&&storyOpponent.rank>=0){const region=storyOpponent.region;const roundIndex=region==='galar'?ROUNDS.galar.findIndex(round=>round.includes(storyOpponent.rank)):storyOpponent.rank;const idx=roundIndex;const roundComplete=region!=='galar'||(idx>=0&&ROUNDS.galar[idx].every(j=>storyProgress()[REGION_TRAINERS.galar[j].id]));if(idx>=0&&idx<rewardNames(region).length&&roundComplete){const badge=document.createElement('div');badge.className='badge-win';badge.innerHTML=badgeSvg(region,idx)+'<strong>'+rewardNames(region)[idx]+(GYM_BADGE_REGIONS.has(region)?'バッジ':'クリアメダル')+'をゲット！</strong>';const txt=$('overlayText');txt.after(badge);$('overlayButton').addEventListener('click',()=>badge.remove(),{once:true})}}const d=$('overlayText');const mons=document.createElement('div');mons.className='victory-mons';for(const mon of teams[winner].slice(storyMode&&winner===1?storyRosterStart(storyOpponent):0)){const pic=document.createElement('img');pic.src=mon.formSprite||img(mon.id);pic.alt=mon.name;mons.append(pic)}d.after(mons);$('overlayButton').addEventListener('click',()=>mons.remove(),{once:true})}
 function showForcedSwitch(){let p=forced;if(cpuMode&&p===1){phase=1;render();setTimeout(cpuForcedSwitch,450);return}let box=$('forcedChoices');box.innerHTML='';teams[p].forEach((mon,i)=>{if(mon.hp<=0||i===active[p])return;let b=document.createElement('button');let pic=document.createElement('img');pic.src=img(mon.id);pic.alt=mon.name;b.append(pic);let name=document.createElement('span');name.textContent=mon.name;b.append(name);let hp=document.createElement('small');hp.textContent=`HP ${mon.hp} / ${mon.maxHp}`;b.append(hp);b.onclick=()=>{$('overlay').classList.remove('visible');box.hidden=true;selectCommand({kind:'switch',index:i})};box.append(b)});$('overlayTitle').textContent=`${player(p)}！`; $('overlayText').textContent='次に出すポケモンをタップしてね！';$('overlayButton').hidden=true;box.hidden=false;$('overlay').classList.add('visible')}
 function scrollToBattle(){const target=$('arenaScene');if(!target)return;const top=target.getBoundingClientRect().top+window.scrollY-12;window.scrollTo({top:Math.max(0,top),behavior:'smooth'})}
-function selectCommand(cmd){if(busy||finished)return;let p=phase;if(forced!==null){if(cmd.kind!=='switch')return;clearOnSwitch(current(p));active[p]=cmd.index;note(`${player(p)}は${current(p).name}を出した！`);applyStoryAceGimmick();render();showSendout(current(p));if(entryRocks(p)){note(current(p).name+'は倒れた！');if(!alive(p)){finished=true;wins[1-p]++;saveWinnerTeam(1-p);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));show('🏆 '+player(1-p)+' の勝ち！','ステルスロックで決着！','タイトルへ',()=>location.reload());return}showForcedSwitch();return}forced=null;commands=[null,null];const other=1-p;if(current(other).hp<=0&&alive(other)){forced=other;phase=other;render();showForcedSwitch();return}round++;promptPlayer(0);return}const locked=dxTurnLock(current(p));if(locked>=0&&(cmd.kind!=='move'||cmd.index!==locked))return;if(cmd.kind==='potion'&&(usedPotion[p]||!teams[p][cmd.index]||teams[p][cmd.index].hp<=0))return;commands[p]=cmd;if(cmd.kind==='move')scrollToBattle();if(p===0){promptPlayer(1)}else resolve()}
+function selectCommand(cmd){if(busy||finished)return;let p=phase;if(forced!==null){if(cmd.kind!=='switch')return;dxLeave(current(p),current(1-p));active[p]=cmd.index;note(`${player(p)}は${current(p).name}を出した！`);applyStoryAceGimmick();render();showSendout(current(p));if(entryRocks(p)){note(current(p).name+'は倒れた！');if(!alive(p)){finished=true;wins[1-p]++;saveWinnerTeam(1-p);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));show('🏆 '+player(1-p)+' の勝ち！','ステルスロックで決着！','タイトルへ',()=>location.reload());return}showForcedSwitch();return}forced=null;commands=[null,null];const other=1-p;if(current(other).hp<=0&&alive(other)){forced=other;phase=other;render();showForcedSwitch();return}round++;promptPlayer(0);return}if(cmd.kind==='switch'&&dxSwitchBlocked(current(p),current(1-p)))return;const locked=dxTurnLock(current(p));if(locked>=0&&(cmd.kind!=='move'||cmd.index!==locked))return;if(cmd.kind==='potion'&&(usedPotion[p]||!teams[p][cmd.index]||teams[p][cmd.index].hp<=0))return;commands[p]=cmd;if(cmd.kind==='move')scrollToBattle();if(p===0){promptPlayer(1)}else resolve()}
 function factor(moveType,def,slug){if(def.roosting)def={...def,types:dxEffectiveTypes(def)};if(dxMoveRule(slug).fixedLevel||FIXED_DAMAGE_MOVES[slug]?.kind==='level')return def.types.some(t=>effectiveness[moveType]?.[t]===0)?0:1;if(slug==='light-of-ruin-zygarde'&&def.types.includes('fairy'))return def.types.filter(t=>t!=='fairy').reduce((v,t)=>v*(effectiveness[moveType]?.[t]??1),1);if(slug==='thousand-arrows')return def.types.filter(t=>t!=='flying').reduce((v,t)=>v*(effectiveness[moveType]?.[t]??1),1);return def.types.reduce((v,t)=>v*(effectiveness[moveType]?.[t]??1),1)}function speed(p){let x=current(p);return x.stats[5]*stageFactor(x.stages?.[4]||0)*(x.status==='paralysis'?.5:1)}function note(t){let div=document.createElement('div');div.textContent=t;$('log').append(div);$('log').scrollTop=$('log').scrollHeight}
 const pause=ms=>new Promise(r=>setTimeout(r,$('fastMode').checked?Math.min(120,ms):ms));
 function say(t){note(t);$('battlefeed').textContent=t}
 async function animateMove(p,m,damage,eff){let attacker=p===phase?'ally':'enemy',target=p===phase?'enemy':'ally';// field order depends on phase
 let a=$(attacker),b=$(target);a.classList.add('attack');await pause(360);a.classList.remove('attack');let fx=$('effect');fx.className='effect active '+(fx.classList.contains(m.type)?m.type:(['fire','water','electric','grass','psychic','ice'].includes(m.type)?m.type:'other'));b.classList.add('hit');if(eff>1){$('arenaScene').classList.add('flash-super');setTimeout(()=>$('arenaScene').classList.remove('flash-super'),600)}await pause(500);fx.className='effect';b.classList.remove('hit')}
 async function resolve(){if(busy)return;busy=true;for(let p=0;p<2;p++){const index=dxTurnLock(current(p));if(index>=0)commands[p]={kind:'move',index}}let order=[0,1].sort((a,b)=>{let ca=commands[a],cb=commands[b];let pa=ca.kind==='switch'?10:ca.kind==='potion'?6:dxProtect(current(a).moves[ca.index].slug)?4:(current(a).moves[ca.index].priority||0),pb=cb.kind==='switch'?10:cb.kind==='potion'?6:dxProtect(current(b).moves[cb.index].slug)?4:(current(b).moves[cb.index].priority||0);return pb-pa||speed(b)-speed(a)||(Math.random()<.5?-1:1)});for(const team of teams)for(const mon of team){mon.protect=false;mon.flinched=false;mon.roosting=false}phase=0;for(let p=0;p<2;p++){if(commands[p]?.kind==='move'&&current(p)?.hp>0)activateSpecial(p)}render();$('moves').querySelectorAll('.movebtn').forEach(b=>b.disabled=true);$('switches').querySelectorAll('button').forEach(b=>b.disabled=true);
-const acted=new Set();
+const acted=new Set(), moveActed=new Set(), damagingSource=new Map();
 for(let p of order){if(finished)break;acted.add(p);let c=commands[p],x=current(p);if(x.hp<=0)continue;
+ if(c.kind==='move')moveActed.add(x);
  const firstActiveTurn=!x.activeTurnUsed;
  x.activeTurnUsed=true;
  if(c.kind==='potion'){x.protectChain=0;
@@ -1178,16 +1332,19 @@ for(let p of order){if(finished)break;acted.add(p);let c=commands[p],x=current(p
  const healed=target.maxHp-target.hp;target.hp=target.maxHp;target.status=null;target.sleepTurns=0;target.toxicTurns=0;
  say(`${player(p)}は ${target.name}に かいふくのくすりを使った！ HPを${healed}回復し、状態異常も治った！`);
  render();await pause(850);continue;
-}if(c.kind==='switch'){x.protectChain=0;pendingSpecial[p]=null;clearOnSwitch(current(p));active[p]=c.index;say(`${player(p)}は${current(p).name}に交代！`);applyStoryAceGimmick();render();showSendout(current(p));if(entryRocks(p)){say(current(p).name+'は倒れた！');if(!alive(p)){finished=true;busy=false;wins[1-p]++;saveWinnerTeam(1-p);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));show('🏆 '+player(1-p)+' の勝ち！','ステルスロックで決着！','タイトルへ',()=>location.reload());return}forced=p;phase=p;busy=false;showForcedSwitch();return}render();await pause(700);continue}activateSpecial(p);x=current(p);if(x.rechargeIndex!=null){
+}if(c.kind==='switch'){if(dxSwitchBlocked(x,current(1-p))){say(x.name+'は とじこめられて こうたいできない！');continue}x.protectChain=0;pendingSpecial[p]=null;dxLeave(current(p),current(1-p));active[p]=c.index;say(`${player(p)}は${current(p).name}に交代！`);applyStoryAceGimmick();render();showSendout(current(p));if(entryRocks(p)){say(current(p).name+'は倒れた！');if(!alive(p)){finished=true;busy=false;wins[1-p]++;saveWinnerTeam(1-p);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));show('🏆 '+player(1-p)+' の勝ち！','ステルスロックで決着！','タイトルへ',()=>location.reload());return}forced=p;phase=p;busy=false;showForcedSwitch();return}render();await pause(700);continue}activateSpecial(p);x=current(p);if(x.rechargeIndex!=null){
   x.rechargeIndex=null;x.protectChain=0;say(x.name+'は 反動で 動けない！');await pause(450);continue;
  }
  const selected=x.moves[c.index],charging=x.chargeIndex===c.index;
- if(charging)x.chargeIndex=null;
+ if(charging){x.chargeIndex=null;x.semiPhase=null;}
  let m=selected&&dxSpecializedMove(selected,x,current(1-p));
  const petal=dxRampage(m?.slug),continuing=petal&&rampageMoveIndex(x)>=0;
- if(!m||(!continuing&&!charging&&selected.pp<=0))continue;
+ const rolling=!!x.rolling,rollingCount=x.rolling?.count||0;
+ x.rolling=null; // only a landed hit restores rolling lock below
+ const advanced=dxAdvanced(m?.slug);
+ if(!m||(!continuing&&!rolling&&!charging&&selected.pp<=0))continue;
  // Preserve the old PP behavior for other moves; the dancing move spends one PP on its first action only.
- if(!petal&&!charging)selected.pp--;
+ if(!petal&&!rolling&&!charging)selected.pp--;
  if(!dxProtect(m.slug))x.protectChain=0;
  if(x.flinched){say(`${x.name}は ひるんで うごけない！`);if(petal)cancelPetalDance(x);continue}
  if(x.status==='sleep'){x.sleepTurns=(x.sleepTurns||1)-1;if(x.sleepTurns<=0){x.status=null;say(`${x.name}は 目をさました！`)}else{say(`${x.name}は ねむっている！`);if(petal)cancelPetalDance(x);continue}}
@@ -1205,11 +1362,25 @@ for(let p of order){if(finished)break;acted.add(p);let c=commands[p],x=current(p
  }
  if(petal&&!continuing)selected.pp--;
  if(dxFix(m.slug).firstTurn&&!firstActiveTurn){say(x.name+'の '+m.name+'！ しかし しっぱいした！');await pause(450);continue;}
+ if(advanced.semi&&!charging){
+  x.semiPhase=advanced.semi;x.chargeIndex=c.index;
+  say(x.name+({air:'は そらへ とびあがった！',ground:'は じめんに もぐった！',water:'は みずのなかに もぐった！'}[advanced.semi]));
+  await pause(450);continue;
+ }
  if(dxFix(m.slug).charge&&!charging&&SharedMoveEffects.weatherKind(weather)!=='sun'){
   x.chargeIndex=c.index;say(x.name+'は ひかりを あつめている！');await pause(450);continue;
  }
- let y=current(1-p);say(`${x.name}の ${m.name}！`);await pause(450);
+ let y=current(1-p);
+ m={...m,power:SharedMoveEffects.conditionalPower(m.slug,m.power,{
+  targetHp:y.hp,targetMaxHp:y.maxHp,targetStatus:y.status,userStatus:x.status,
+  targetActed:moveActed.has(y),targetDamagedUser:damagingSource.get(x)===y
+ })};
+ say(`${x.name}の ${m.name}！`);await pause(450);
 if(dxMoveRule(m.slug).suckerPunch&&!dxAttackIntent(1-p,acted)){say('しかし しっぱいした！');await pause(450);continue}
+if(advanced.delayed){
+ if(!dxScheduleFuture(1-p,x,m))say('しかし しっぱいした！');
+ await pause(450);continue;
+}
 if(dxProtect(m.slug)){
  const chance=SharedMoveEffects.protectChance(x.protectChain);x.protectChain++;x.protect=Math.random()<chance;
  say(x.protect?`${x.name}は まもりの体勢に入った！`:`${x.name}の まもるは失敗した！`);render();await pause(450);continue;
@@ -1217,6 +1388,8 @@ if(dxProtect(m.slug)){
 if(dxRecover(m.slug)){const amount=Math.min(x.maxHp-x.hp,Math.max(1,Math.floor(x.maxHp*(SharedMoveEffects.healingFraction(m.slug,weather)??dxRecover(m.slug)))));x.hp+=amount;if(dxFix(m.slug).roost&&amount>0)x.roosting=true;say(amount?`${x.name}の HPが ${amount} 回復した！`:`${x.name}の HPは満タンだ！`);render();await pause(450);continue}
 if(dxMoveRule(m.slug).requiresSleep&&y.status!=='sleep'){say('相手がねむっていないので しっぱいした！');await pause(500);continue}
 if(y.protect&&!dxSelfStatus(m)){say(`${y.name}は 攻撃をまもった！`);if(petal)cancelPetalDance(x);await pause(500);continue}
+const semi=dxSelfStatus(m)?1:SharedMoveEffects.semiMultiplier(m.slug,y.semiPhase);
+if(semi===0){say(y.name+'には とどかない！');if(petal)cancelPetalDance(x);await pause(450);continue}
 const poisonToxic=dxFix(m.slug).poisonNeverMiss&&dxEffectiveTypes(x).includes('poison');
 if(m.category==='status'&&SharedMoveEffects.incomingImmunity(m.slug,dxEffectiveTypes(y))){say('こうかが ないようだ……');await pause(450);continue}
 if(!dxSelfStatus(m)&&!poisonToxic&&!OHKO_MOVES.has(m.slug)&&Math.random()*100>=dxHitChance(x,y,m)){say(`${x.name}の攻撃は外れた！`);if(petal)cancelPetalDance(x);await pause(650);continue}if(m.category==='status'){
@@ -1225,27 +1398,35 @@ if(!dxSelfStatus(m)&&!poisonToxic&&!OHKO_MOVES.has(m.slug)&&Math.random()*100>=d
   else{y.leechSeeded=true;say(y.name+'に タネを うえつけた！')}
   render();await pause(500);continue;
  }
+ if(m.slug==='defense-curl')x.defenseCurl=true;
  dxApplyStages(x,y,m);
  if(CONFUSE_MOVES.has(m.slug)||dxMoveRule(m.slug).confuse===100)confuse(y);
  else applyStatus(y,m);
  render();await pause(500);continue;
-}if(OHKO_MOVES.has(m.slug)){const immune=factor(m.type,y)===0||(m.slug==='sheer-cold'&&y.types.includes('ice'));if(immune||!oneHitKO(m,x,y)){say(immune?'こうかが ないようだ……':'しかし こうげきは はずれた！');await pause(500);continue}y.hp=0;say(`${m.name}が 命中！ ${y.name}は 一撃で倒れた！`);render();await pause(500);if(!alive(1-p)){finished=true;busy=false;wins[p]++;saveWinnerTeam(p);if(!cpuMode)localStorage.setItem(WINSKEY,JSON.stringify(wins));showVictory(p);return}forced=1-p;commands=[null,null];phase=forced;busy=false;render();showForcedSwitch();return}let eff=factor(m.type,y,m.slug),atk=x.stats[m.category==='physical'?1:3]*(m.slug==='light-of-ruin-zygarde'?1:stageFactor(x.stages?.[m.category==='physical'?0:2]||0))*(x.status==='burn'&&m.category==='physical'?.5:1),def=Math.max(1,y.stats[m.category==='physical'?2:4]*(m.slug==='light-of-ruin-zygarde'?1:stageFactor(y.stages?.[m.category==='physical'?1:3]||0))*stadiumDefenseMultiplier(y,m));let crit=Math.random()<critChance(m)?1.5:1;let fixed=specialDamage(m,x,y);let dmg=eff===0?0:fixed!==null?fixed:Math.max(1,Math.floor(SharedMoveEffects.damageBase(x.level||50,m.power,atk,def)*storyStab(x,m.type)*eff*stadiumDamageMultiplier(m)*crit*(.85+Math.random()*.15)));if(fixed!==null)crit=1;if(crit>1){$('arenaScene').classList.add('flash-crit');setTimeout(()=>$('arenaScene').classList.remove('flash-crit'),550)}
-let hitCount=1,hitNote='';const multi=MULTI_HIT_MOVES[m.slug];
-if(multi&&eff>0&&fixed===null){const planned=multiHitCount(multi);let sum=0;hitCount=0;for(let hit=0;hit<planned;hit++){
- if(hit>0&&(multi.kind==='ramp'||multi.kind==='population')&&Math.random()*100>=dxHitChance(x,y,m))break;
- const powerMultiplier=multi.kind==='ramp'?hit+1:1;
+}if(OHKO_MOVES.has(m.slug)){const immune=factor(m.type,y)===0||(m.slug==='sheer-cold'&&dxEffectiveTypes(y).includes('ice'))||y.gmax>0;if(immune||!oneHitKO(m,x,y)){say(immune?'こうかが ないようだ……':'しかし こうげきは はずれた！');await pause(500);continue}y.hp=0;say(`${m.name}が 命中！ ${y.name}は 一撃で倒れた！`);render();await pause(500);dxProcessInterruptedRound(1-p);return}let eff=factor(m.type,y,m.slug),atk=x.stats[m.category==='physical'?1:3]*(m.slug==='light-of-ruin-zygarde'?1:stageFactor(x.stages?.[m.category==='physical'?0:2]||0))*(x.status==='burn'&&m.category==='physical'&&!SharedMoveEffects.ignoresBurn(m.slug)?.5:1),def=Math.max(1,y.stats[m.category==='physical'?2:4]*(m.slug==='light-of-ruin-zygarde'?1:stageFactor(y.stages?.[m.category==='physical'?1:3]||0))*stadiumDefenseMultiplier(y,m));let crit=Math.random()<critChance(m)?1.5:1;let fixed=specialDamage(m,x,y);let dmg=eff===0?0:fixed!==null?fixed:Math.max(1,Math.floor(SharedMoveEffects.damageBase(x.level||50,m.power,atk,def)*storyStab(x,m.type)*eff*stadiumDamageMultiplier(m)*crit*(.85+Math.random()*.15)));if(fixed!==null)crit=1;if(crit>1){$('arenaScene').classList.add('flash-crit');setTimeout(()=>$('arenaScene').classList.remove('flash-crit'),550)}
+let hitCount=1,hitNote='';const perHit=SharedMoveEffects.perHitRule(m.slug),multi=perHit||MULTI_HIT_MOVES[m.slug];
+if(multi&&eff>0&&fixed===null){const planned=perHit?.hits??multiHitCount(multi);let sum=0;hitCount=0;for(let hit=0;hit<planned;hit++){
+ if(hit>0&&(perHit||multi.kind==='ramp'||multi.kind==='population')&&Math.random()*100>=dxHitChance(x,y,m))break;
+ const powerMultiplier=(perHit?perHit.ramp:multi.kind==='ramp')?hit+1:1;
  const one=Math.max(1,Math.floor(SharedMoveEffects.damageBase(x.level||50,m.power*powerMultiplier,atk,def)*storyStab(x,m.type)*eff*stadiumDamageMultiplier(m)*(Math.random()<critChance(m)?1.5:1)*(.85+Math.random()*.15)));
  sum+=Math.min(one,Math.max(0,y.hp-sum));hitCount++;if(sum>=y.hp)break;
  }dmg=sum;crit=1;hitNote=` ${hitCount}回あたった！`;
 }
-dmg=SharedMoveEffects.conserveHp(m.slug,dmg,y.hp);
+dmg=SharedMoveEffects.conserveHp(m.slug,dmg*semi,y.hp);
 await animateMove(p,m,dmg,eff);
 const actualDamage=Math.min(y.hp,dmg);
 y.hp=Math.max(0,y.hp-dmg);
 if(eff>0&&actualDamage>0&&dxFix(m.slug).recharge)x.rechargeIndex=c.index;
 if(m.slug==='final-gambit'&&eff>0)x.hp=0;
 if(eff>0&&actualDamage>0){
+ damagingSource.set(y,x);
+ if(y.hp>0&&SharedMoveEffects.curedTargetStatus(m.slug,y.status)){
+  const was=y.status;y.status=null;y.sleepTurns=0;y.toxicTurns=0;
+  say(y.name+(was==='sleep'?'は 目をさました！':'の まひが なおった！'));
+ }
  if(y.hp>0)applyStatus(y,m);
+ if(advanced.trap&&y.hp>0&&!y.binding){y.binding={source:x,name:m.name,turns:SharedMoveEffects.trapTurns()};say(y.name+'は '+m.name+'に とじこめられた！')}
+ if(advanced.rolling&&rollingCount<4)x.rolling={index:c.index,count:rollingCount+1};
  dxApplyStages(x,y,m);
  const flinch=(dxMoveRule(m.slug).flinch??(FLINCH_MOVES[m.slug]||0)*100)/100;
  if(y.hp>0&&flinch>0&&Math.random()<flinch)y.flinched=true;
@@ -1278,6 +1459,7 @@ if(recoilRatio&&actualDamage>0&&eff>0){
 if(y.hp===0||x.hp===0){
  if(y.hp===0){$(p===phase?'enemy':'ally').classList.add('fainted');say(`${y.name}は倒れた！`);await pause(400)}
  if(x.hp===0){say(`${x.name}は倒れた！`);await pause(400)}
+ dxResolveFuture();
  const pAlive=alive(p),qAlive=alive(1-p);
  if(!pAlive||!qAlive){
   finished=true;busy=false;
@@ -1293,8 +1475,9 @@ if(y.hp===0||x.hp===0){
 }
 }
 
+dxResolveFuture();
 const aliveAtTurnEnd=[current(0).hp>0,current(1).hp>0];
-afterTurnStatus();stadiumTurnEnd();dxEndSeeds();tickGmax();
+afterTurnStatus();stadiumTurnEnd();dxEndSeeds();dxTraps();tickGmax();
 for(const p of [0,1])if(aliveAtTurnEnd[p]&&current(p).hp<=0)say(current(p).name+'は倒れた！');
 const living=[alive(0),alive(1)];
 commands=[null,null];busy=false;
